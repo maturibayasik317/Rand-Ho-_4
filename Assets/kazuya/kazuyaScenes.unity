@@ -135,8 +135,9 @@ GameObject:
   - component: {fileID: 273686212}
   - component: {fileID: 273686215}
   - component: {fileID: 273686216}
+  - component: {fileID: 273686217}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +204,7 @@ Transform:
   m_GameObject: {fileID: 273686211}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.47, y: -2.58, z: 0}
+  m_LocalPosition: {x: -7.95, y: -2.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -281,6 +282,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &273686217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273686211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056a6a138a773c84caf3a9134448fc2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &348564761
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +307,7 @@ GameObject:
   - component: {fileID: 348564766}
   - component: {fileID: 348564767}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,7 +374,7 @@ Transform:
   m_GameObject: {fileID: 348564761}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.3, y: -4.37, z: 0}
+  m_LocalPosition: {x: -3.7799997, y: -4.37, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
