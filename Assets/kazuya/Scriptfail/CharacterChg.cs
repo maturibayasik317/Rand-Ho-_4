@@ -22,7 +22,7 @@ public class CharacterChg : MonoBehaviour
             gameObject.SetActive(false);
         }
         //最初の一つをアクティブ化
-        childObject[1].SetActive(true);
+        childObject[index].SetActive(true);
     }
 
     // Update is called once per frame
@@ -31,19 +31,19 @@ public class CharacterChg : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             childObject[index].SetActive(false);
-            index = 1;
+            index = 0;
             childObject[index].SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             childObject[index].SetActive(false);
-            index = 2;
+            index = 1;
             childObject[index].SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             childObject[index].SetActive(false);
-            index = 3;
+            index = 2;
             childObject[index].SetActive(true);
         }
     }
