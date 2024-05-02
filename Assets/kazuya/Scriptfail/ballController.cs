@@ -5,6 +5,7 @@ using UnityEngine;
 public class ballController : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,14 @@ public class ballController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rigidbody2D.gravityScale = 1;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        rigidbody2D.gravityScale = 10;
     }
 }

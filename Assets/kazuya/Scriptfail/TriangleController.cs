@@ -15,7 +15,7 @@ public class TriangleController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.Rotate(new Vector3(0, 0, 60));
+            transform.Rotate(new Vector3(0, 0, 45));
         }
     }
 }
