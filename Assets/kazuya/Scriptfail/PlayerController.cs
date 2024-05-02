@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         //左右の移動処理
         MoveUpdeate();
+        jumpUpdeate();
     }
     private void MoveUpdeate()
     {
@@ -37,6 +38,17 @@ public class PlayerController : MonoBehaviour
         {// 入力なし
          // X方向の移動を停止
             xSpeed = 0.0f;
+        }
+    }
+    void jumpUpdeate()
+    {
+        // ジャンプ操作
+        if (Input.GetKeyDown(KeyCode.Space))
+        {// ジャンプ開始
+         // ジャンプ力を計算
+            float jumpPower = 10.0f;
+            // ジャンプ力を適用
+            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpPower);
         }
     }
     private void FixedUpdate()
