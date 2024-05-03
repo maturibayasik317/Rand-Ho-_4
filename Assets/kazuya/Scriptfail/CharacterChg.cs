@@ -16,34 +16,15 @@ public class CharacterChg : MonoBehaviour
         {
             childObject[i] = transform.GetChild(i).gameObject;//すべての子オブジェクト取得
         }
-        //すべての子オブジェクトを非表示
-        foreach(GameObject gamObj in childObject)
-        {
-            gameObject.SetActive(false);
-        }
-        //最初の一つをアクティブ化
-        childObject[index].SetActive(true);
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        //キーが押されたときにオブジェクトの種類を変える
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             childObject[index].SetActive(false);
-            index = 0;
-            childObject[index].SetActive(true);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            childObject[index].SetActive(false);
-            index = 1;
-            childObject[index].SetActive(true);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            childObject[index].SetActive(false);
-            index = 2;
+            ++index;
+            if (index == o_max) { index = 0; }
             childObject[index].SetActive(true);
         }
     }

@@ -15,6 +15,7 @@ public class ballController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.Rotate(new Vector3(0, 0, 90));
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rigidbody2D.gravityScale = 1;
