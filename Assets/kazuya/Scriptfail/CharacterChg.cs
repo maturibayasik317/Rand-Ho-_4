@@ -20,10 +20,10 @@ public class CharacterChg : MonoBehaviour
     void Update()
     {
         //キーが押されたときにオブジェクトの種類を変える
-        if (Input.GetKeyDown(KeyCode.LeftControl)||Input.GetKey(KeyCode.RightControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl)||Input.GetKeyDown(KeyCode.RightControl))
         {
             childObject[index].SetActive(false);
-            ++index;
+            ++index;//物体の種類を変えるカウントを１追加
             if (index == o_max) { index = 0; }
             childObject[index].SetActive(true);
         }

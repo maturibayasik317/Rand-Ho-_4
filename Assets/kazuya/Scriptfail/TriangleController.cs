@@ -13,6 +13,7 @@ public class TriangleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //ƒL[‚ğ‰Ÿ‚·‚²‚Æ‚É45‹‰ñ“]‚·‚é
         if (Input.GetKeyDown(KeyCode.Space))
         {
             transform.Rotate(new Vector3(0, 0, 45));

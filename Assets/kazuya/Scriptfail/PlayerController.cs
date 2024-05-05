@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
     public float xSpeed;
+    private int JumpCount;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +20,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //左右の移動処理
-        MoveUpdeate();
-        jumpUpdeate();
-        sceneTitle();
+        MoveUpdeate();//物体の左右移動の処理
+        jumpUpdeate();//ジャンプの処理
+        sceneTitle();//シーンの切り替え
     }
     private void MoveUpdeate()
     {
@@ -45,13 +46,18 @@ public class PlayerController : MonoBehaviour
     }
     void jumpUpdeate()
     {
+        //2段ジャンプ禁止 //タグを作ってジャンプを禁止にする
         // ジャンプ操作
-        if (Input.GetKeyDown(KeyCode.Space)||Input.GetKey(KeyCode. RightShift))
-        {// ジャンプ開始
-         // ジャンプ力を計算
-            float jumpPower = 10.0f;
-            // ジャンプ力を適用
-            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpPower);
+        if (JumpCount == 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.RightShift))
+            {// ジャンプ開始
+                ++JumpCount;
+                // ジャンプ力を計算
+                float jumpPower = 10.0f;
+                // ジャンプ力を適用
+                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpPower);
+            }
         }
     }
     private void FixedUpdate()
@@ -66,10 +72,20 @@ public class PlayerController : MonoBehaviour
     }
     private void sceneTitle()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        
+        if (Input.GetKeyDown(KeyCode.P)||Input.GetKeyDown(KeyCode.RightShift))
         {
             SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            JumpCount = 0;
+        }
+        
     }
 
 }
