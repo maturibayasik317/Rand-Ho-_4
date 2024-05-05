@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,17 +21,18 @@ public class PlayerController : MonoBehaviour
         //左右の移動処理
         MoveUpdeate();
         jumpUpdeate();
+        sceneTitle();
     }
     private void MoveUpdeate()
     {
 
         // X方向移動入力
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.RightArrow))
         {// 右方向の移動入力
          // X方向移動速度をプラスに設定
             xSpeed = + 6.0f;
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {// 左方向の移動入力
          // X方向移動速度をマイナスに設定
             xSpeed = -6.0f;
@@ -43,7 +46,7 @@ public class PlayerController : MonoBehaviour
     void jumpUpdeate()
     {
         // ジャンプ操作
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)||Input.GetKey(KeyCode. RightShift))
         {// ジャンプ開始
          // ジャンプ力を計算
             float jumpPower = 10.0f;
@@ -60,6 +63,13 @@ public class PlayerController : MonoBehaviour
 
         // 計算した移動速度ベクトルをRigidbody2Dに反映
         rigidbody2D.velocity = velocity;
+    }
+    private void sceneTitle()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        }
     }
 
 }
