@@ -31,12 +31,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.RightArrow))
         {// 右方向の移動入力
          // X方向移動速度をプラスに設定
-            xSpeed = + 6.0f;
+         xSpeed = + 6.0f;
         }
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {// 左方向の移動入力
          // X方向移動速度をマイナスに設定
-            xSpeed = -6.0f;
+         xSpeed = -6.0f;
         }
         else
         {// 入力なし
@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground")||collision.gameObject.CompareTag("slope"))
         {
             JumpCount = 0;
         }

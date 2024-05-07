@@ -5,10 +5,13 @@ using UnityEngine;
 public class ballController : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
+    PlayerController playerController;
+    public bool Slope = false;
 
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        playerController = GetComponent<PlayerController>();
     }
 
     void Update()
@@ -24,6 +27,10 @@ public class ballController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //â¡ë¨Çí«â¡Ç∑ÇÈ
+        if (collision.gameObject.CompareTag("slope"))
+        {
+            Slope = true;
+        }
         //ï®ëÃÇ…Ç‘Ç¬Ç©Ç¡ÇΩéûèdóÕÇ10Ç…ñﬂÇ∑
         rigidbody2D.gravityScale = 10;
     }
