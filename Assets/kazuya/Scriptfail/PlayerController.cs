@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
-    public float xSpeed = 6;
-    public float jumpPower;
-    private int JumpCount;
-    public bool prri = false;
+    public float xSpeed = 6;//プレイヤーの速度
+    public float jumpPower;//プレイヤーのジャンプの高さ
+    private int JumpCount;//
+    public bool prri = false;//プレイヤーが止まっているかを確認している
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        xSpeed = 6;
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             prri = false;
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
     }
     private void sceneTitle()
     {
-        
+        //押されたときにシーンを移動する
         if (Input.GetKeyDown(KeyCode.P)&&Input.GetKey(KeyCode.RightShift))
         {
             SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);

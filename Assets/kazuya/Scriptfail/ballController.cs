@@ -51,7 +51,7 @@ public class ballController : MonoBehaviour
             rigidbody2D.velocity = new Vector2(playerController.xSpeed, rigidbody2D.velocity.y);
         }
         else
-        {
+        {//これから緩やかに停止するプログラムを作成！！
             playerController.xSpeed = 6;
         }
     }
