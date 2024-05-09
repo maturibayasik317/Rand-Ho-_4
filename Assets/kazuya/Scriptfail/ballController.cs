@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ballController : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
     PlayerController playerController;
-    public bool Slope = false;
+    public bool Slope/*right*/ = false;
+    public bool SlopeLeft = false;
     public bool ballslope = false;
+    
 
     void Start()
     {
@@ -34,13 +37,14 @@ public class ballController : MonoBehaviour
         }
         else
         {
-            ballslope = false;
+            ballslope = false;        
         }
         //物体にぶつかった時重力を10に戻す
         rigidbody2D.gravityScale = 10;
     }
     private void FixedUpdate()
     {
+        //ボールが坂にある時に速度を変更して、移動させる。
         if(ballslope == true)
         {
             playerController.xSpeed = 10;
