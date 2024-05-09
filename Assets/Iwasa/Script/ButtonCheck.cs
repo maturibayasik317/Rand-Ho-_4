@@ -6,14 +6,13 @@ public class ButtonCheck : MonoBehaviour
 {
     public GameObject wall; // 壁のオブジェクト
 
-    private bool isButtonPressed = false; // ボタンが押されたかどうかのフラグ
-
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // プレイヤーがボタンに触れた場合
+        if(other.gameObject.tag == "Player")
         {
-            isButtonPressed = true;
-            wall.SetActive(false); // ボタンが押されたので壁を非表示にする
+            Destroy(gameObject);
+            Destroy(wall);//壁を破壊
+            Debug.Log("壁破壊");
         }
     }
 }

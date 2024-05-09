@@ -28,6 +28,7 @@ public class TimeLimit : MonoBehaviour
             Destroy(PlayerObuject);//プレイヤーの破壊
             timerText.text = "TIME UP!!";//タイムアップのメッセージ
             this.enabled = false; //タイマーを停止
+            Debug.Log("GameOver");
         }
     }
 
