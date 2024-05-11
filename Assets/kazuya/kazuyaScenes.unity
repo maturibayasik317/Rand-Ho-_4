@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 327703821}
   m_Layer: 0
   m_Name: Ground (3)
-  m_TagString: slope
+  m_TagString: sloperLeft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1334,7 +1334,7 @@ GameObject:
   - component: {fileID: 1483671173}
   - component: {fileID: 1483671172}
   - component: {fileID: 1483671171}
-  - component: {fileID: 1483671174}
+  - component: {fileID: 1483671177}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1416,7 +1416,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1483671174
+--- !u!114 &1483671177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1649,7 +1649,7 @@ GameObject:
   - component: {fileID: 1974522447}
   m_Layer: 0
   m_Name: Ground (4)
-  m_TagString: slope
+  m_TagString: sloperight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1787,8 +1787,8 @@ Transform:
   m_GameObject: {fileID: 1974522446}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.29009894, w: 0.9569967}
-  m_LocalPosition: {x: 50.22, y: -1.06, z: 0}
-  m_LocalScale: {x: 18.223267, y: 3.0368, z: 1}
+  m_LocalPosition: {x: 48.29, y: 0.57, z: 0}
+  m_LocalScale: {x: 13.195467, y: 3.0361927, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

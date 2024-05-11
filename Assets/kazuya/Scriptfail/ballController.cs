@@ -7,7 +7,7 @@ public class ballController : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
     PlayerController playerController;
-    public bool Slope/*right*/ = false;
+    public bool Sloperight = false;
     public bool SlopeLeft = false;
     public bool ballslope = false;
     
@@ -30,28 +30,54 @@ public class ballController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //自動で坂を下る
-        if (collision.gameObject.CompareTag("slope")&&playerController.prri ==true)
+        //右下がりの坂を転がる
+        if (collision.gameObject.CompareTag("sloperight")&&playerController.prri ==false)
         {
-            ballslope = true;
+            Sloperight = true;
+        }
+        //左下りの坂を転がる
+        else if(collision.gameObject.CompareTag("sloperLeft")&&playerController.prri == false)
+        {
+            SlopeLeft = true;
         }
         else
         {
-            ballslope = false;        
+            Sloperight = false;
+            SlopeLeft = false;
         }
-        //物体にぶつかった時重力を10に戻す
-        rigidbody2D.gravityScale = 10;
     }
     private void FixedUpdate()
     {
         //ボールが坂にある時に速度を変更して、移動させる。
-        if(ballslope == true)
+        if (Sloperight == true)
         {
             playerController.xSpeed = 10;
+            if (Sloperight == false && playerController.prri == false)
+            {
+                --playerController.xSpeed;
+                if (playerController.xSpeed == 0)
+                {
+                    playerController.xSpeed = 0;
+                }
+            }
             rigidbody2D.velocity = new Vector2(playerController.xSpeed, rigidbody2D.velocity.y);
         }
+        else if (SlopeLeft == true)
+        {
+            playerController.xSpeed = 10;
+            if (SlopeLeft == false && playerController.prri == false)
+            {
+                --playerController.xSpeed;
+                if (playerController.xSpeed == 0)
+                {
+                    playerController.xSpeed = 0;
+                }
+                
+            }
+            rigidbody2D.velocity = new Vector2(-playerController.xSpeed, rigidbody2D.velocity.y);
+        }
         else
-        {//これから緩やかに停止するプログラムを作成！！
+        {//オブジェクトが動いているときは速度を6に戻す
             playerController.xSpeed = 6;
         }
     }

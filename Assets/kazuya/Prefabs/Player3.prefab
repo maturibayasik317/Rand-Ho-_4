@@ -163,6 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xSpeed: 0
+  jumpPower: 0
+  prri: 0
 --- !u!114 &-2796041211932930367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,3 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4cca703d9d07e4a93a71bed80585f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sloperight: 0
+  SlopeLeft: 0
+  ballslope: 0

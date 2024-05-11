@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem.Controls;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
-    public float xSpeed = 6;//プレイヤーの速度
-    public float jumpPower;//プレイヤーのジャンプの高さ
+    [SerializeField]public float xSpeed = 6;//プレイヤーの速度
+    [SerializeField]public float jumpPower;//プレイヤーのジャンプの高さ
     private int JumpCount;//
     public bool prri = false;//プレイヤーが止まっているかを確認している
+    public ButtonControl left { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,7 @@ public class PlayerController : MonoBehaviour
         MoveUpdeate();//物体の左右移動の処理
         jumpUpdeate();//ジャンプの処理
         sceneTitle();//シーンの切り替え
+        float lsh = Input.GetAxis("Horizontal");
     }
     private void MoveUpdeate()
     {
@@ -51,13 +55,13 @@ public class PlayerController : MonoBehaviour
         xSpeed = 6;
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            prri = false;
+            prri = true;
             // 右方向の移動入力
             rigidbody2D.velocity = new Vector2(xSpeed, rigidbody2D.velocity.y);
         }
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            prri = false;
+            prri = true;
             //左方向の移動入力
             rigidbody2D.velocity = new Vector2(-xSpeed, rigidbody2D.velocity.y);
         }
@@ -66,7 +70,7 @@ public class PlayerController : MonoBehaviour
             // 入力なし
             // // X方向の移動を停止
             rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
-            prri = true;
+            prri = false;
         }
     }
     private void sceneTitle()
@@ -81,7 +85,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //ジャンプの制御
-        if (collision.gameObject.CompareTag("Ground")||collision.gameObject.CompareTag("slope"))
+        if (collision.gameObject.CompareTag("Ground")||collision.gameObject.CompareTag("sloperLeft")||collision.gameObject.CompareTag("sloperight"))
         {
             JumpCount = 0;
         }
