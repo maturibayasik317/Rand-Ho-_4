@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ballController : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
     PlayerController playerController;
     public bool Sloperight = false;
     public bool SlopeLeft = false;
@@ -31,12 +31,12 @@ public class ballController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //右下がりの坂を転がる
-        if (collision.gameObject.CompareTag("sloperight")&&playerController.prri ==false)
+        if (collision.gameObject.CompareTag("sloperight"))
         {
             Sloperight = true;
         }
         //左下りの坂を転がる
-        else if(collision.gameObject.CompareTag("sloperLeft")&&playerController.prri == false)
+        else if(collision.gameObject.CompareTag("sloperLeft"))
         {
             SlopeLeft = true;
         }
@@ -52,29 +52,30 @@ public class ballController : MonoBehaviour
         if (Sloperight == true)
         {
             playerController.xSpeed = 10;
-            if (Sloperight == false && playerController.prri == false)
+            if (playerController.prri == false)
             {
-                --playerController.xSpeed;
-                if (playerController.xSpeed == 0)
-                {
-                    playerController.xSpeed = 0;
-                }
+                rigidbody2D.velocity = new Vector2(playerController.xSpeed, rigidbody2D.velocity.y);
+                //--playerController.xSpeed;
+                //if (playerController.xSpeed == 0)
+                //{
+                //    playerController.xSpeed = 0;
+                //}
             }
-            rigidbody2D.velocity = new Vector2(playerController.xSpeed, rigidbody2D.velocity.y);
+
         }
         else if (SlopeLeft == true)
         {
             playerController.xSpeed = 10;
-            if (SlopeLeft == false && playerController.prri == false)
+            if ( playerController.prri == false)
             {
-                --playerController.xSpeed;
-                if (playerController.xSpeed == 0)
-                {
-                    playerController.xSpeed = 0;
-                }
-                
+                //--playerController.xSpeed;
+                //if (playerController.xSpeed == 0)
+                //{
+                //    playerController.xSpeed = 0;
+                //}
+                rigidbody2D.velocity = new Vector2(-playerController.xSpeed, rigidbody2D.velocity.y);
             }
-            rigidbody2D.velocity = new Vector2(-playerController.xSpeed, rigidbody2D.velocity.y);
+            
         }
         else
         {//オブジェクトが動いているときは速度を6に戻す

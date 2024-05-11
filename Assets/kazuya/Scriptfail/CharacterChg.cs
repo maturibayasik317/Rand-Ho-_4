@@ -6,6 +6,7 @@ public class CharacterChg : MonoBehaviour
 {
     public int index = 0;
     private int o_max = 0;
+
     GameObject[] childObject;
     void Start()
     {
@@ -23,6 +24,7 @@ public class CharacterChg : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl)||Input.GetKeyDown(KeyCode.RightControl))
         {
             childObject[index].SetActive(false);
+
             ++index;//•¨‘Ì‚ÌŽí—Þ‚ð•Ï‚¦‚éƒJƒEƒ“ƒg‚ð‚P’Ç‰Á
             if (index == o_max) { index = 0; }
             childObject[index].SetActive(true);

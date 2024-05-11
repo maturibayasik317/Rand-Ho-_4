@@ -5,15 +5,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem.Controls;
 using Unity.VisualScripting;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
     [SerializeField]public float xSpeed = 6;//プレイヤーの速度
     [SerializeField]public float jumpPower;//プレイヤーのジャンプの高さ
     private int JumpCount;//
     public bool prri = false;//プレイヤーが止まっているかを確認している
     public ButtonControl left { get; private set; }
+    public int GravitySensor { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,11 @@ public class PlayerController : MonoBehaviour
         MoveUpdeate();//物体の左右移動の処理
         jumpUpdeate();//ジャンプの処理
         sceneTitle();//シーンの切り替え
-        float lsh = Input.GetAxis("Horizontal");
+        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
+        {
+            Transform myTransform = this.transform;//transformを取得
+            this.gameObject.transform.position = new Vector2(transform.position.x, transform.position.y);//ワールド座標での座標を設定
+        }
     }
     private void MoveUpdeate()
     {
@@ -45,6 +51,7 @@ public class PlayerController : MonoBehaviour
                 ++JumpCount;
                 // ジャンプ力を計算
                  jumpPower = xSpeed*2;
+                rigidbody2D.gravityScale = 2;
                 // ジャンプ力を適用
                 rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpPower);
             }
@@ -89,7 +96,9 @@ public class PlayerController : MonoBehaviour
         {
             JumpCount = 0;
         }
-        
+        rigidbody2D.gravityScale = 10;
+
     }
+
 
 }
