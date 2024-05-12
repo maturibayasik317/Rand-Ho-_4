@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]public float jumpPower;//プレイヤーのジャンプの高さ
     private int JumpCount;//
     public bool prri = false;//プレイヤーが止まっているかを確認している
+    Sample sample;
+
     public ButtonControl left { get; private set; }
     public int GravitySensor { get; private set; }
 
@@ -21,19 +23,24 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidbody2D =  GetComponent<Rigidbody2D>();
-    }
+
+
+        ;    }
 
     // Update is called once per frame
     void Update()
     {
+
         //左右の移動処理
         MoveUpdeate();//物体の左右移動の処理
         jumpUpdeate();//ジャンプの処理
         sceneTitle();//シーンの切り替え
         if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
         {
-            Transform myTransform = this.transform;//transformを取得
-            this.gameObject.transform.position = new Vector2(transform.position.x, transform.position.y);//ワールド座標での座標を設定
+            Vector2 posi = new Vector2(transform.position.x, transform.position.y);//transformを取得
+            Debug.Log("x = "+posi.x);
+                        this.transform.position = posi;//ワールド座標での座標を設定
+            Debug.Log((transform.position.x, transform.position.y));
         }
     }
     private void MoveUpdeate()

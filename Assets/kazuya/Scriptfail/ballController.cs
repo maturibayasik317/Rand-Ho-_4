@@ -22,6 +22,18 @@ public class ballController : MonoBehaviour
     {
         //ジャンプするときにボールの重力を1に変更する
         //transform.Rotate(new Vector3(0, 0, -90));
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Rotate(new Vector3(0, 0, -5));
+        }
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Rotate(new Vector3(0, 0, 5));
+        }
+        else
+        {
+            transform.Rotate(new Vector3(0, 0, 0));
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rigidbody2D.gravityScale = 2;
