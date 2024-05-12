@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform target;// カメラが追跡する対象
-    public float smoothTime = 0.1f;// スムーズ化に使用する時間
-    public Vector3 offset;// カメラとプレイヤーの距離
+    public Transform target; // カメラが追跡する対象
+    public float smoothTime = 0.1f; // スムーズ化に使用する時間
+    public Vector3 offset; // カメラとプレイヤーの距離
 
     private Vector3 velocity = Vector3.zero;
+
 
     void LateUpdate()
     {

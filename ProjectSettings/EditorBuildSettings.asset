@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Iwasa/Scene/StartScene.unity
+    guid: 4adfaffd1aa52c040bb40c6605172038
+  - enabled: 1
+    path: Assets/Iwasa/Scene/Iwasa.unity
+    guid: 19e443a9e2691d64b9a14587b09ac083
+  - enabled: 1
+    path: Assets/Iwasa/Scene/GameClear.unity
+    guid: 2e28de6080b40c242a8318f0834a8e6d
+  - enabled: 1
+    path: Assets/Iwasa/Scene/GameOver.unity
+    guid: 7eb49fccdfa4fce41aace73a6175ee08
   m_configObjects: {}
