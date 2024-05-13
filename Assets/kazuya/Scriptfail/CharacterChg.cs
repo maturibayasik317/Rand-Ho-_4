@@ -8,9 +8,10 @@ public class CharacterChg : MonoBehaviour
     public int index = 0;
     private int o_max = 0;
 
+
+
     GameObject[] childObject;
     Sample sample;
-
 
     void Start()
     {
@@ -21,17 +22,16 @@ public class CharacterChg : MonoBehaviour
         {
             childObject[i] = transform.GetChild(i).gameObject;//すべての子オブジェクト取得
         }
-        
+
     }
     void Update()
     {
         //キーが押されたときにオブジェクトの種類を変える
         if (Input.GetKeyDown(KeyCode.LeftControl)||Input.GetKeyDown(KeyCode.RightControl))
         {
-
-
             childObject[index].SetActive(false);
-           
+
+
             ++index;//物体の種類を変えるカウントを１追加
             if (index == o_max) { index = 0; }
 
