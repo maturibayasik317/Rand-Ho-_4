@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]public float xSpeed = 6;//プレイヤーの速度
     [SerializeField]public float jumpPower;//プレイヤーのジャンプの高さ
     private int JumpCount;//
+    [SerializeField] public float PlayerObject;
     public bool prri = false;//プレイヤーが止まっているかを確認している
 
     public ButtonControl left { get; private set; }
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidbody2D =  GetComponent<Rigidbody2D>();
-        new Vector2(transform.position.x,transform.position.y);
+      new Vector2(transform.position.x,transform.position.y);
     }
 
     // Update is called once per frame
@@ -36,6 +37,8 @@ public class PlayerController : MonoBehaviour
         MoveUpdeate();//物体の左右移動の処理
         jumpUpdeate();//ジャンプの処理
         sceneTitle();//シーンの切り替え
+        Vector2 PlayerObject =  transform.position;
+
         Debug.Log($"{transform.position}");
     }
     private void MoveUpdeate()
