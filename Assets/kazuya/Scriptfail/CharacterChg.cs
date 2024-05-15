@@ -9,11 +9,11 @@ public class CharacterChg : MonoBehaviour
     private int o_max = 0;
 
     GameObject[] childObject;
-    Sample sample;
+    Sample sample  = new Sample();
 
     void Start()
     {
-        Sample sample = gameObject.AddComponent<Sample>();
+        //Sample sample = gameObject.AddComponent<Sample>();
         o_max = this.transform.childCount;//子オブジェクトの取得
         childObject = new GameObject[o_max];//インスタンスの作成
         for(int i = 0; i < o_max; i++)
