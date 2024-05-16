@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 73294260}
   - component: {fileID: 73294259}
   - component: {fileID: 73294262}
+  - component: {fileID: 73294263}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -223,7 +224,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73294258}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ff0f72b2887b4959ad8e08dc8616af6, type: 3}
   m_Name: 
@@ -231,6 +232,25 @@ MonoBehaviour:
   target: {fileID: 865807120}
   smoothTime: 0
   offset: {x: 0, y: 0, z: -10}
+--- !u!114 &73294263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73294258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3782a7d467ff66f4cb75f1379bcce0ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 865807120}
+  smoothTime: 0.01
+  offset: {x: 0, y: 0, z: -10}
+  minZoom: 5
+  maxZoom: 10
+  zoomSpeed: 10
+  jumpThreshold: -2
 --- !u!1 &400074084 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6445979979542889038, guid: c73f40b387215a04fa0d0a69c5018e90, type: 3}
@@ -543,6 +563,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4800586504534261249, guid: c73f40b387215a04fa0d0a69c5018e90, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 233895468392471834, guid: 6377adda66bfa7e4881a62c8c7e7a19a, type: 3}
       propertyPath: m_Color.b
       value: 0.21442318
@@ -606,10 +630,6 @@ PrefabInstance:
     - target: {fileID: 7663107526821382839, guid: 6377adda66bfa7e4881a62c8c7e7a19a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800586504534261249, guid: c73f40b387215a04fa0d0a69c5018e90, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6373382318623522552, guid: 6377adda66bfa7e4881a62c8c7e7a19a, type: 3}
@@ -914,7 +934,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7607582603690077477, guid: f266e35c1389ce24caefe7abc06cd431, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
