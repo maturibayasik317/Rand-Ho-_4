@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.LogError("Timer Text is not assigned!");
     }
 
     // Update is called once per frame
@@ -43,6 +43,12 @@ public class GameManager : MonoBehaviour
 
     void DisplayTime(float timeToDisplay)//Žc‚èŽžŠÔ‚Ì•\Ž¦
     {
+        if (timerText == null)
+        {
+            Debug.LogError("Timer Text is not assigned!");
+            return;
+        }
+
         timeToDisplay += 1;
 
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);

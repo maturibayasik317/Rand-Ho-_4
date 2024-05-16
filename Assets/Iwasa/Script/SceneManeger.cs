@@ -25,6 +25,19 @@ public class SceneManeger : MonoBehaviour
         SceneManager.LoadScene("GameOver");//ゲームオーバー画面に移動
         Debug.Log("ゲームオーバーシーンに移動");
     }
+
+    public void RestartGame()
+    {
+        // 現在のシーンを再ロードする
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("リトライ");
+    }
+
+    public void ReturnStartMenu()
+    {
+        // スタートメニューに相当するシーンに移動する
+        SceneManager.LoadScene("StartScene");
+    }
     // Update is called once per frame
     void Update()
     {

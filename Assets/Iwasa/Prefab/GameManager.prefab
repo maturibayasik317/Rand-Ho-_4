@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4666602596257921221
+--- !u!1 &9194637328636203775
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8195087154990740011}
-  - component: {fileID: 4638508351630416475}
+  - component: {fileID: 559304070779767878}
+  - component: {fileID: 8981394476475521137}
+  - component: {fileID: 4811705207857252422}
+  - component: {fileID: 4671773106059434392}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -17,13 +19,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8195087154990740011
+--- !u!4 &559304070779767878
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4666602596257921221}
+  m_GameObject: {fileID: 9194637328636203775}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 242.2, y: 191.8, z: 0}
@@ -32,14 +34,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4638508351630416475
+--- !u!114 &8981394476475521137
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4666602596257921221}
-  m_Enabled: 1
+  m_GameObject: {fileID: 9194637328636203775}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef0e1ce0a7419e40bd57fab940b70da, type: 3}
   m_Name: 
@@ -47,3 +49,31 @@ MonoBehaviour:
   timerText: {fileID: 0}
   timeRemaining: 180
   PlayerObuject: {fileID: 0}
+--- !u!114 &4811705207857252422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194637328636203775}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac024072470493f44bd847ea705c2977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 0}
+  timeRemaining: 180
+  PlayerObuject: {fileID: 0}
+--- !u!114 &4671773106059434392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194637328636203775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943e15451ee03c244a53d94552188daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GoalPoint: {fileID: 0}

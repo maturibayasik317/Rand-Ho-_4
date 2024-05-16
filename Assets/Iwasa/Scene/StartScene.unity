@@ -274,11 +274,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4666602596257921221, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1286595422}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+--- !u!114 &580105730 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4671773106059434392, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+  m_PrefabInstance: {fileID: 580105729}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943e15451ee03c244a53d94552188daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &653486478
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +449,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1286595422}
+      - m_Target: {fileID: 580105730}
         m_TargetAssemblyTypeName: SceneManeger, Assembly-CSharp
         m_MethodName: StartGameScene
         m_Mode: 1
@@ -559,23 +567,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1286595421 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4666602596257921221, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-  m_PrefabInstance: {fileID: 580105729}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1286595422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1286595421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943e15451ee03c244a53d94552188daf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1706979438
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +580,7 @@ GameObject:
   - component: {fileID: 1706979440}
   - component: {fileID: 1706979439}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MenuScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

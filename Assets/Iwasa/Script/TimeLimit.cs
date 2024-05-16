@@ -12,7 +12,7 @@ public class TimeLimit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+      
     }
 
     // Update is called once per frame
@@ -34,6 +34,12 @@ public class TimeLimit : MonoBehaviour
 
     void DisplayTime(float timeToDisplay)
     {
+        if (timerText == null)
+        {
+            Debug.LogError("Timer Text is not assigned!");
+            return;
+        }
+
         timeToDisplay += 1;
 
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
