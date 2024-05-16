@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timerText;
     public float timeRemaining = 180; //制限時間
     public GameObject PlayerObuject;
+    private bool isTimeLow = false; // 時間が少ないかどうかを確認する
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,13 @@ public class GameManager : MonoBehaviour
             timerText.text = "TIME UP!!";//タイムアップのメッセージ
             this.enabled = false; //タイマーを停止
             Debug.Log("TIME UP!!");
+        }
+
+        // 残り時間が1分未満になったらテキストの色を赤に変更
+        if (!isTimeLow && timeRemaining <= 60)
+        {
+            timerText.color = Color.red;
+            isTimeLow = true; 
         }
     }
 
