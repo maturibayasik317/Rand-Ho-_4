@@ -10,19 +10,17 @@ public class Spawn : MonoBehaviour
     public new GameObject gameObject;
     [SerializeField] GameObject PlayerObj;
     private Vector2 player;
-    squareController squareController;
+    SquareController squareController;
     void Start()
     {
         gameObject = Instantiate(Player[index]);
-        squareController = GetComponent<squareController>();
+        squareController = GetComponent<SquareController>();
     }
 
     void Update()
     {
         gameObject = squareController.childObject;
         PlayerObj = gameObject;
-        Debug.Log($"{PlayerObj.transform.position}");
-        //Debug.Log($"{sample.GetSetProperty}");
         //キーが押されたときにオブジェクトの種類を変える
         if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
         {
