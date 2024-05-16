@@ -1,49 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class squareController : MonoBehaviour
 {
     private int index = 0;
-    private int o_max = 0;
-    GameObject[] childObject;
     [SerializeField] public GameObject[] Player;
-    public static Vector2 PlayersLocation = new Vector2(0, 0);
-    // Start is called before the first frame update
+    public GameObject childObject;
+    [SerializeField] GameObject Square;
+    private Vector2 player;
+    Spawn spawn;
     void Start()
     {
-        o_max = this.transform.childCount;//子オブジェクトの個数取得
-        childObject = new GameObject[o_max];//インスタンス作成
-        Player[index].transform.position = PlayersLocation;
-        for (int i = 0; i < o_max; i++)
-        {
-            childObject[i] = transform.GetChild(i).gameObject;//すべての子オブジェクト取得
-        }
-        //すべての子オブジェクトを非アクティブ
-        foreach (GameObject gamObj in childObject)
-        {
-            gamObj.SetActive(false);
-        }
-        //最初はひとつだけアクティブ化しておく
-        childObject[index].SetActive(true);
+        spawn = GetComponent<Spawn>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("q"))
+        childObject = spawn.gameObject;
+        Square = childObject;
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            PlayersLocation = Player[index].transform.position;
-            //現在のアクティブな子オブジェクトを非アクティブ
-            childObject[index].SetActive(false);
-
-            index++;
-
-            //子オブジェクトをすべて切り替えたらまた最初のオブジェクトに戻る
-            if (index == o_max) { index = 0; }
-
-            //次のオブジェクトをアクティブ化
-            childObject[index].SetActive(true);
+            player = Square.transform.position;
+            Destroy(Square);
+            ++index;
+            if(index == Player.Length) { index = 0; }
+            childObject = Instantiate(Player[index], player, Quaternion.identity);
         }
     }
 }
