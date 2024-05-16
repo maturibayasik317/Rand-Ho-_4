@@ -1,45 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
-public class squareController : MonoBehaviour
+public class SquareController : MonoBehaviour
 {
     private int index = 0;
-    private int o_max = 0;
-    GameObject[] childObject;
-    // Start is called before the first frame update
+    [SerializeField] public GameObject[] Player;//生成元となるオブジェクト
+    public GameObject childObject;// 入れ替え先となるオブジェクト
+    [SerializeField] GameObject Square;//操作するオブジェクト
+    private Vector2 player;//プレイヤーの座標を保存する
+    Spawn spawn;
     void Start()
     {
-        o_max = this.transform.childCount;//子オブジェクトの個数取得
-        childObject = new GameObject[o_max];//インスタンス作成
-
-        for (int i = 0; i < o_max; i++)
-        {
-            childObject[i] = transform.GetChild(i).gameObject;//すべての子オブジェクト取得
-        }
-        //すべての子オブジェクトを非アクティブ
-        foreach (GameObject gamObj in childObject)
-        {
-            gamObj.SetActive(false);
-        }
-        //最初はひとつだけアクティブ化しておく
-        childObject[index].SetActive(true);
+        spawn = GetComponent<Spawn>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("q"))
-        {
-            //現在のアクティブな子オブジェクトを非アクティブ
-            childObject[index].SetActive(false);
-            index++;
-
-            //子オブジェクトをすべて切り替えたらまた最初のオブジェクトに戻る
-            if (index == o_max) { index = 0; }
-
-            //次のオブジェクトをアクティブ化
-            childObject[index].SetActive(true);
+        childObject = spawn.gameObject;//
+        Square = childObject;
+        //指定のキーが押されたとき
+        if (Input.GetKeyDown(KeyCode.Q))
+        {//四角の形であれば
+            if (GameObject.Find("Player(Clone)") || GameObject.Find("Player1(Clone)"))
+            {
+                //プレイヤーの座標を保存
+                player = Square.transform.position;
+                Destroy(Square);//今あるオブジェクトを削除
+                ++index;//カウントを追加
+                if (index == Player.Length) { index = 0; }
+                //新しいオブジェクトを前のオブジェクト座標に生成
+                childObject = Instantiate(Player[index], player, Quaternion.identity);
+            } 
         }
     }
 }

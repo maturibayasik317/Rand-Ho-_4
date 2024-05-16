@@ -5,8 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+<<<<<<< HEAD
   - slope
   - Goal
+=======
+  - sloperight
+  - sloperLeft
+>>>>>>> kazuya2
   layers:
   - Default
   - TransparentFX
