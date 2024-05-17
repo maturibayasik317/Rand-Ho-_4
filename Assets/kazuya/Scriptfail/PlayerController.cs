@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float PlayerObject;
     public bool prri = false;//プレイヤーが止まっているかを確認している
     Sample sample = new Sample();
+    public bool Alive = true;
     public ButtonControl left { get; private set; }
     public int GravitySensor { get; private set; }
 
@@ -27,13 +28,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //左右の移動処理
-        MoveUpdeate();//物体の左右移動の処理
-        jumpUpdeate();//ジャンプの処理
+        if (Alive)//プレイヤーが生存している時
+        {
+            //左右の移動処理
+            MoveUpdeate();//物体の左右移動の処理
+            jumpUpdeate();//ジャンプの処理
+            sample.GetSetProperty = transform.position;
+        }
         sceneTitle();//シーンの切り替え
-       // Vector2 PlayerObject =  transform.position;
-        sample.GetSetProperty = transform.position;
-       // Debug.Log($"{transform.position}");
     }
     private void MoveUpdeate()
     {
@@ -57,25 +59,28 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        xSpeed = 6;
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (Alive)
         {
-            prri = true;
-            // 右方向の移動入力
-            rigidbody2D.velocity = new Vector2(xSpeed, rigidbody2D.velocity.y);
-        }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            prri = true;
-            //左方向の移動入力
-            rigidbody2D.velocity = new Vector2(-xSpeed, rigidbody2D.velocity.y);
-        }
-        else
-        {
-            // 入力なし
-            // // X方向の移動を停止
-            rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
-            prri = false;
+            xSpeed = 6;
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                prri = true;
+                // 右方向の移動入力
+                rigidbody2D.velocity = new Vector2(xSpeed, rigidbody2D.velocity.y);
+            }
+            else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                prri = true;
+                //左方向の移動入力
+                rigidbody2D.velocity = new Vector2(-xSpeed, rigidbody2D.velocity.y);
+            }
+            else
+            {
+                // 入力なし
+                // // X方向の移動を停止
+                rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+                prri = false;
+            }
         }
     }
     private void sceneTitle()
@@ -95,6 +100,10 @@ public class PlayerController : MonoBehaviour
             JumpCount = 0;
         }
         rigidbody2D.gravityScale = 10;
+        if (collision.gameObject.CompareTag(""))
+        {
+            Alive = false;
+        }
 
     }
 

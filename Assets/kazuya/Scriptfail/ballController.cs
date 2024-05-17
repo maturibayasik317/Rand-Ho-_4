@@ -20,43 +20,51 @@ public class ballController : MonoBehaviour
 
     void Update()
     {
-        //ジャンプするときにボールの重力を1に変更する
-        //transform.Rotate(new Vector3(0, 0, -90));
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (playerController.Alive)
         {
-            transform.Rotate(new Vector3(0, 0, -5));
-        }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Rotate(new Vector3(0, 0, 5));
-        }
-        else
-        {
-            transform.Rotate(new Vector3(0, 0, 0));
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rigidbody2D.gravityScale = 2;
+            //ジャンプするときにボールの重力を1に変更する
+            //transform.Rotate(new Vector3(0, 0, -90));
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.Rotate(new Vector3(0, 0, -5));
+            }
+            else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.Rotate(new Vector3(0, 0, 5));
+            }
+            else
+            {
+                transform.Rotate(new Vector3(0, 0, 0));
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                rigidbody2D.gravityScale = 2;
+            }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //右下がりの坂を転がる
-        if (collision.gameObject.CompareTag("sloperight"))
+        if (playerController.Alive)
         {
-            Sloperight = true;
+            //右下がりの坂を転がる
+            if (collision.gameObject.CompareTag("sloperight"))
+            {
+                Sloperight = true;
+            }
+            //左下りの坂を転がる
+            else if (collision.gameObject.CompareTag("sloperLeft"))
+            {
+                SlopeLeft = true;
+            }
+
+            else
+            {
+                Sloperight = false;
+                SlopeLeft = false;
+            }
         }
-        //左下りの坂を転がる
-        else if(collision.gameObject.CompareTag("sloperLeft"))
-        {
-            SlopeLeft = true;
-        }
-        else
-        {
-            Sloperight = false;
-            SlopeLeft = false;
-        }
+        
     }
     private void FixedUpdate()
     {
