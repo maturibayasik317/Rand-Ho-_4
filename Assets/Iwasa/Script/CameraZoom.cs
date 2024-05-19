@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
-    public Transform target; // カメラが追跡するキャラクター
     public float smoothTime = 0.1f; // スムーズ化に使用する時間
     public Vector3 offset; // カメラとプレイヤーの距離
     public float minZoom = 5f; // 最小ズーム値
@@ -14,10 +13,22 @@ public class CameraZoom : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
     private Camera cam;
+    private Transform target;
 
     void Start()
     {
         cam = GetComponent<Camera>();
+
+        // Playerタグが付いたオブジェクトを探してtargetに設定
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        if (playerObject != null)
+        {
+            target = playerObject.transform;
+        }
+        else
+        {
+            Debug.LogError("Playerタグが付いたオブジェクトが見つかりません！");
+        }
     }
 
     void LateUpdate()

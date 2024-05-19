@@ -244,7 +244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3782a7d467ff66f4cb75f1379bcce0ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 865807120}
   smoothTime: 0.01
   offset: {x: 0, y: 0, z: -10}
   minZoom: 5
@@ -608,6 +607,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2719334758208935613, guid: b1abd9b9d2482464fb6e12fd4c661bb5, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719334758208935613, guid: b1abd9b9d2482464fb6e12fd4c661bb5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719334758208935613, guid: b1abd9b9d2482464fb6e12fd4c661bb5, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719334758208935613, guid: b1abd9b9d2482464fb6e12fd4c661bb5, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8417617527751882023, guid: b1abd9b9d2482464fb6e12fd4c661bb5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -954,6 +969,10 @@ PrefabInstance:
       propertyPath: PlayerObuject
       value: 
       objectReference: {fileID: 865807117}
+    - target: {fileID: 4811705207857252422, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+      propertyPath: timeRemaining
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 8195087154990740011, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 242.2
@@ -998,8 +1017,13 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8981394476475521137, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+      propertyPath: timeRemaining
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4638508351630416475, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+    - {fileID: 8981394476475521137, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
