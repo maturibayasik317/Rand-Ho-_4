@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,9 +37,21 @@ public class SceneManeger : MonoBehaviour
         {
             sceneToLoad = "Iwasa"; // デフォルトのシーンを設定
         }
-        SceneManager.LoadScene(sceneToLoad);
         Debug.Log("リトライ：" + sceneToLoad);
+
+        try
+        {
+            SceneManager.LoadScene(sceneToLoad);
+        }
+        catch (ArgumentException e)
+        {
+            Debug.LogError("The scene " + sceneToLoad + " cannot be loaded: " + e.Message);
+            // デフォルトシーンにフォールバック
+            SceneManager.LoadScene("DefaultSceneName");
+        }
     }
+
+
 
     public void ReturnStartMenu()
     {

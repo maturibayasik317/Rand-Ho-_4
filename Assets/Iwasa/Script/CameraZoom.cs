@@ -17,6 +17,11 @@ public class CameraZoom : MonoBehaviour
 
     void Start()
     {
+
+    }
+
+    void Update()
+    {
         cam = GetComponent<Camera>();
 
         // Playerタグが付いたオブジェクトを探してtargetに設定
