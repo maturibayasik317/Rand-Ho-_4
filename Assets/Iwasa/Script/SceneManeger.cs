@@ -9,24 +9,30 @@ public class SceneManeger : MonoBehaviour
     public GameObject GoalPoint;
     private bool gameOver = false;
 
+    [SceneField] public string PlayScene;
+    [SceneField] public string gameClearScene;
+    [SceneField] public string gameOverScene;
+    [SceneField] public string startScene;
+    [SceneField] public string Scene1;
+    [SceneField] public string Scene2;
     public void StartGameScene()
     {
         GameManager.previousScene = SceneManager.GetActiveScene().name; // 現在のシーン名を保存
-        SceneManager.LoadScene("Iwasa"); // ゲーム画面に移動
+        SceneManager.LoadScene(PlayScene); // ゲーム画面に移動
         Debug.Log("プレイシーンに移動");
     }
 
     public void GameClearScene()
     {
         GameManager.previousScene = SceneManager.GetActiveScene().name; // 現在のシーン名を保存
-        SceneManager.LoadScene("GameClear"); // ゲームクリアシーンに移動
+        SceneManager.LoadScene(gameClearScene); // ゲームクリアシーンに移動
         Debug.Log("ゲームクリアに移動");
     }
 
     public void GameOverScene()
     {
         GameManager.previousScene = SceneManager.GetActiveScene().name; // 現在のシーン名を保存
-        SceneManager.LoadScene("GameOver"); // ゲームオーバー画面に移動
+        SceneManager.LoadScene(gameOverScene); // ゲームオーバー画面に移動
         Debug.Log("ゲームオーバーシーンに移動");
     }
 
@@ -35,7 +41,7 @@ public class SceneManeger : MonoBehaviour
         string sceneToLoad = GameManager.previousScene;
         if (string.IsNullOrEmpty(sceneToLoad))
         {
-            sceneToLoad = "Iwasa"; // デフォルトのシーンを設定
+            sceneToLoad = PlayScene; // デフォルトのシーンを設定
         }
         Debug.Log("リトライ：" + sceneToLoad);
 
@@ -51,18 +57,16 @@ public class SceneManeger : MonoBehaviour
         }
     }
 
-
-
     public void ReturnStartMenu()
     {
-        SceneManager.LoadScene("StartScene"); // スタートメニューに相当するシーンに移動
+        SceneManager.LoadScene(startScene); // スタートメニューに相当するシーンに移動
         Debug.Log("スタート画面に移動");
     }
 
     void Update()
     {
         // ゲームプレイシーンのみでプレイヤーの存在を確認する
-        if (SceneManager.GetActiveScene().name == "Iwasa" && !gameOver && GameObject.FindGameObjectWithTag("Player") == null)
+        if (SceneManager.GetActiveScene().name == PlayScene && !gameOver && GameObject.FindGameObjectWithTag("Player") == null)
         {
             gameOver = true;
             StartCoroutine(ChangeSceneAfterDelay("GameOver", 3.0f));

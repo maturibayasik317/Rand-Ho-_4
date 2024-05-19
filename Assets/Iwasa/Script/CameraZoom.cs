@@ -54,8 +54,8 @@ public class CameraZoom : MonoBehaviour
             float newZoom = Mathf.Lerp(cam.orthographicSize, targetZoom, Time.deltaTime * zoomSpeed);
             cam.orthographicSize = newZoom;
 
-            float clampedX = Mathf.Clamp(transform.position.x, -100f, 100f);
-            float clampedY = Mathf.Clamp(transform.position.y, -100f, 100f);
+            float clampedX = Mathf.Clamp(transform.position.x, -10000f, 10000f);
+            float clampedY = Mathf.Clamp(transform.position.y, -10000f, 10000f);
             transform.position = new Vector3(clampedX, clampedY, transform.position.z);
         }
     }
