@@ -11,6 +11,10 @@ TagManager:
 =======
   - sloperight
   - sloperLeft
+<<<<<<< HEAD
+>>>>>>> kazuya2
+=======
+  - Dead
 >>>>>>> kazuya2
   layers:
   - Default

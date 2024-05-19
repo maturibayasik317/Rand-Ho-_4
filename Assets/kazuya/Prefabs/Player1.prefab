@@ -174,4 +174,5 @@ MonoBehaviour:
   xSpeed: 6
   jumpPower: 0
   PlayerObject: 0
-  prri: 1
+  prri: 0
+  Alive: 1
