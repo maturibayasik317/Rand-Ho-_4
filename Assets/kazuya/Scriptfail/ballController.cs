@@ -7,6 +7,8 @@ public class ballController : MonoBehaviour
 {
     private new Rigidbody2D rigidbody2D;
     PlayerController playerController;
+    Spawn spawn;
+    private GameObject characterChg;
     public bool Sloperight = false;
     public bool SlopeLeft = false;
     public bool ballslope = false;
@@ -14,13 +16,16 @@ public class ballController : MonoBehaviour
 
     void Start()
     {
+        characterChg = GameObject.Find("CharacterChg");
         rigidbody2D = GetComponent<Rigidbody2D>();
         playerController = GetComponent<PlayerController>();
+        spawn = characterChg.GetComponent<Spawn>();
+        
     }
 
     void Update()
     {
-        if (playerController.Alive)
+        if (spawn.Alive)
         {
             //ジャンプするときにボールの重力を1に変更する
             //transform.Rotate(new Vector3(0, 0, -90));
@@ -45,7 +50,7 @@ public class ballController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (playerController.Alive)
+        if (spawn.Alive)
         {
             //右下がりの坂を転がる
             if (collision.gameObject.CompareTag("sloperight"))
@@ -68,38 +73,31 @@ public class ballController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //ボールが坂にある時に速度を変更して、移動させる。
-        if (Sloperight == true)
+        if (spawn.Alive)
         {
-            playerController.xSpeed = 10;
-            if (playerController.prri == false)
+            //ボールが坂にある時に速度を変更して、移動させる。
+            if (Sloperight == true)
             {
-                rigidbody2D.velocity = new Vector2(playerController.xSpeed, rigidbody2D.velocity.y);
-                //--playerController.xSpeed;
-                //if (playerController.xSpeed == 0)
-                //{
-                //    playerController.xSpeed = 0;
-                //}
-            }
+                playerController.xSpeed = 10;
+                if (playerController.prri == false)
+                {
+                    rigidbody2D.velocity = new Vector2(playerController.xSpeed, rigidbody2D.velocity.y);
+                }
 
-        }
-        else if (SlopeLeft == true)
-        {
-            playerController.xSpeed = 10;
-            if ( playerController.prri == false)
-            {
-                //--playerController.xSpeed;
-                //if (playerController.xSpeed == 0)
-                //{
-                //    playerController.xSpeed = 0;
-                //}
-                rigidbody2D.velocity = new Vector2(-playerController.xSpeed, rigidbody2D.velocity.y);
             }
-            
-        }
-        else
-        {//オブジェクトが動いているときは速度を6に戻す
-            playerController.xSpeed = 6;
+            else if (SlopeLeft == true)
+            {
+                playerController.xSpeed = 10;
+                if (playerController.prri == false)
+                {
+                    rigidbody2D.velocity = new Vector2(-playerController.xSpeed, rigidbody2D.velocity.y);
+                }
+
+            }
+            else
+            {//オブジェクトが動いているときは速度を6に戻す
+                playerController.xSpeed = 6;
+            }
         }
     }
 }

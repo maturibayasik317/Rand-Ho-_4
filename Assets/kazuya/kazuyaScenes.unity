@@ -1013,12 +1013,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483671170}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bf2cdaf00d29fc4b9e9727ac48fa796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 164258353567867370, guid: 8e78b9a3672a044408b75d0bfe808057, type: 3}
+  target: {fileID: 1731939618}
 --- !u!1 &1719542108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1190,7 @@ GameObject:
   - component: {fileID: 1731939622}
   - component: {fileID: 1731939623}
   m_Layer: 0
-  m_Name: ChracterChg
+  m_Name: CharacterChg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1260,6 +1260,7 @@ MonoBehaviour:
   - {fileID: 6980526229973722225, guid: 53068cc1a0c5a2a41a0f70f391d80e7e, type: 3}
   gameObject: {fileID: 0}
   PlayerObj: {fileID: 0}
+  Alive: 1
 --- !u!1 &1974522446
 GameObject:
   m_ObjectHideFlags: 0

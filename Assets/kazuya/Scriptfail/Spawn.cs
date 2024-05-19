@@ -10,21 +10,22 @@ public class Spawn : MonoBehaviour
     public new GameObject gameObject;
     [SerializeField] GameObject PlayerObj;
     private Vector2 player;
+    public bool Alive = true;
     SquareController squareController;
-    PlayerController playerController;
+
     void Start()
     {
         gameObject = Instantiate(Player[index]);
         squareController = GetComponent<SquareController>();
-        playerController = GetComponent<PlayerController>();
     }
 
     void Update()
     {
-        if (playerController.Alive)
-        {
+        
             gameObject = squareController.childObject;
             PlayerObj = gameObject;
+       if(Alive )
+        {
             //キーが押されたときにオブジェクトの種類を変える
             if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
             {
@@ -34,10 +35,6 @@ public class Spawn : MonoBehaviour
                 if (index == Player.Length) { index = 0; }
                 gameObject = Instantiate(Player[index], player, Quaternion.identity);
             }
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 }

@@ -5,16 +5,21 @@ using UnityEngine;
 public class TriangleController : MonoBehaviour
 {
     PlayerController playerController;
+    Spawn spawn;
+    private GameObject characterChg;
     // Start is called before the first frame update
     void Start()
     {
+        characterChg = GameObject.Find("CharacterChg");
         playerController = GetComponent<PlayerController>();
+        spawn = characterChg.GetComponent<Spawn>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerController.Alive)
+        if (spawn.Alive)
         {
             //ÉLÅ[ÇâüÇ∑Ç≤Ç∆Ç…45ÅãâÒì]Ç∑ÇÈ
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.RightShift))

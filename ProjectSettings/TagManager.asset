@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - sloperight
   - sloperLeft
+  - Dead
   layers:
   - Default
   - TransparentFX

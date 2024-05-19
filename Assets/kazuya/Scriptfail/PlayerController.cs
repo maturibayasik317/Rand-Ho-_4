@@ -16,32 +16,33 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float PlayerObject;
     public bool prri = false;//プレイヤーが止まっているかを確認している
     Sample sample = new Sample();
-    public bool Alive = true;
+   // public bool Alive = true;
     public ButtonControl left { get; private set; }
     public int GravitySensor { get; private set; }
+    private GameObject characterChg;
+    Spawn spawn;
 
     void Start()
     {
+        characterChg = GameObject.Find("CharacterChg");
+        spawn = characterChg.GetComponent<Spawn>();
         rigidbody2D =  GetComponent<Rigidbody2D>();
       new Vector2(transform.position.x,transform.position.y);
     }
 
     void Update()
     {
-        if (Alive)//プレイヤーが生存している時
-        {
-            //左右の移動処理
-            MoveUpdeate();//物体の左右移動の処理
+
+        if (spawn.Alive)//プレイヤーが生存している時
+        {       //左右の移動処理
             jumpUpdeate();//ジャンプの処理
             sample.GetSetProperty = transform.position;
         }
         sceneTitle();//シーンの切り替え
     }
-    private void MoveUpdeate()
-    {
-    }
     void jumpUpdeate()
     {
+
         //2段ジャンプ禁止 //タグを作ってジャンプを禁止にする
         // ジャンプ操作
         if (JumpCount == 0)
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour
             {// ジャンプ開始
                 ++JumpCount;
                 // ジャンプ力を計算
-                 jumpPower = xSpeed*2;
+                jumpPower = xSpeed * 2;
                 rigidbody2D.gravityScale = 2;
                 // ジャンプ力を適用
                 rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpPower);
@@ -59,7 +60,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (Alive)
+        if (spawn.Alive)
         {
             xSpeed = 6;
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -100,9 +101,9 @@ public class PlayerController : MonoBehaviour
             JumpCount = 0;
         }
         rigidbody2D.gravityScale = 10;
-        if (collision.gameObject.CompareTag(""))
+        if (collision.gameObject.CompareTag("Dead"))
         {
-            Alive = false;
+            spawn.Alive = false;
         }
 
     }
