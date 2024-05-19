@@ -6,6 +6,7 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
     public int index = 0;
+    private float DeatTime = 0.0f;
     public GameObject[] Player;
     public new GameObject gameObject;
     [SerializeField] GameObject PlayerObj;
@@ -34,6 +35,14 @@ public class Spawn : MonoBehaviour
                 ++index;
                 if (index == Player.Length) { index = 0; }
                 gameObject = Instantiate(Player[index], player, Quaternion.identity);
+            }
+        }
+        else
+        {
+            ++DeatTime;
+            if(DeatTime == 10.0f)
+            {
+                Destroy(gameObject);
             }
         }
     }
