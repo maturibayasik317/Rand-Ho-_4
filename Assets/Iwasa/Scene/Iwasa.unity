@@ -485,6 +485,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GoalPoint: {fileID: 636697966}
+  PlayScene: 
+  gameClearScene: 
+  gameOverScene: 
+  startScene: 
 --- !u!1 &865807117 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2916387002150854160, guid: f266e35c1389ce24caefe7abc06cd431, type: 3}
@@ -933,34 +937,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4638508351630416475, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 559304070779767878, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 242.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 559304070779767878, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 191.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 559304070779767878, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4638508351630416475, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: timerText
-      value: 
+    - target: {fileID: 559304070779767878, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4638508351630416475, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: PlayerObuject
-      value: 
-      objectReference: {fileID: 865807117}
-    - target: {fileID: 4638508351630416475, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: timeRemaining
-      value: 180
+    - target: {fileID: 559304070779767878, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4666602596257921221, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: m_Name
-      value: GameManager
+    - target: {fileID: 559304070779767878, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559304070779767878, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559304070779767878, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559304070779767878, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559304070779767878, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4671773106059434392, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
       propertyPath: GoalPoint
       value: 
       objectReference: {fileID: 636697966}
-    - target: {fileID: 4811705207857252422, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4811705207857252422, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
       propertyPath: timerText
       value: 
@@ -969,61 +989,11 @@ PrefabInstance:
       propertyPath: PlayerObuject
       value: 
       objectReference: {fileID: 865807117}
-    - target: {fileID: 4811705207857252422, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: timeRemaining
-      value: 180
+    - target: {fileID: 9194637328636203775, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+      propertyPath: m_Name
+      value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 8195087154990740011, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 242.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8195087154990740011, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 191.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8195087154990740011, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8195087154990740011, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8195087154990740011, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8195087154990740011, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8195087154990740011, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8195087154990740011, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8195087154990740011, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8195087154990740011, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8981394476475521137, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8981394476475521137, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-      propertyPath: timeRemaining
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4638508351630416475, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
-    - {fileID: 8981394476475521137, guid: a69e8221cbdbbca4886b9d15939e48dd, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
