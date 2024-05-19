@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 559304070779767878}
-  - component: {fileID: 8981394476475521137}
   - component: {fileID: 4811705207857252422}
   - component: {fileID: 4671773106059434392}
+  - component: {fileID: 1743398907508330053}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -34,21 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8981394476475521137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9194637328636203775}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eef0e1ce0a7419e40bd57fab940b70da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerText: {fileID: 0}
-  timeRemaining: 180
-  PlayerObuject: {fileID: 0}
 --- !u!114 &4811705207857252422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,7 +41,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9194637328636203775}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac024072470493f44bd847ea705c2977, type: 3}
   m_Name: 
@@ -77,3 +62,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GoalPoint: {fileID: 0}
+  PlayScene: Iwasa
+  gameClearScene: GameClear
+  gameOverScene: GameOver
+  startScene: StartScene
+--- !u!114 &1743398907508330053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194637328636203775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dba8434f379d9846a7241824ac0a281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
