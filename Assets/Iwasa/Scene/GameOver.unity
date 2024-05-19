@@ -369,7 +369,7 @@ PrefabInstance:
       objectReference: {fileID: 1435078774}
     - target: {fileID: 2751766689534250889, guid: 19f65bd9e33e92d45b3ba4e9cabab440, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartGame
+      value: ReStartGame
       objectReference: {fileID: 0}
     - target: {fileID: 6603320611128824862, guid: 19f65bd9e33e92d45b3ba4e9cabab440, type: 3}
       propertyPath: m_Pivot.x

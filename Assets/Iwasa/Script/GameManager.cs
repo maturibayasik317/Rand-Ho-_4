@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class GameManager : MonoBehaviour
     public GameObject PlayerObuject;
     private bool isTimeLow = false; // 時間が少ないかどうかを確認する
 
-    // Start is called before the first frame update
+    //シーン移動を記録する
+    public static string previousScene;
+
     void Start()
     {
         Debug.LogError("Timer Text is not assigned!");
