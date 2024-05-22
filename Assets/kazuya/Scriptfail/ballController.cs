@@ -82,6 +82,10 @@ public class ballController : MonoBehaviour
                 if (playerController.prri == false)
                 {
                     rigidbody2D.velocity = new Vector2(playerController.xSpeed, rigidbody2D.velocity.y);
+                    if(playerController.JumpCount == 1)
+                    {
+                        rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+                    }
                 }
 
             }
@@ -91,6 +95,10 @@ public class ballController : MonoBehaviour
                 if (playerController.prri == false)
                 {
                     rigidbody2D.velocity = new Vector2(-playerController.xSpeed, rigidbody2D.velocity.y);
+                    if (playerController.JumpCount == 1)
+                    {
+                        rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+                    }
                 }
 
             }
