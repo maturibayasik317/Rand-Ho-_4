@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ballController : MonoBehaviour
 {
+    public Sprite newSprite;
+    private Image image;
     private new Rigidbody2D rigidbody2D;
     PlayerController playerController;
     Spawn spawn;
@@ -18,6 +21,7 @@ public class ballController : MonoBehaviour
     {
         characterChg = GameObject.Find("CharacterChg");
         rigidbody2D = GetComponent<Rigidbody2D>();
+        image = GetComponent<Image>();
         playerController = GetComponent<PlayerController>();
         spawn = characterChg.GetComponent<Spawn>();
         
@@ -31,11 +35,11 @@ public class ballController : MonoBehaviour
             //transform.Rotate(new Vector3(0, 0, -90));
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                transform.Rotate(new Vector3(0, 0, -5));
+                transform.Rotate(new Vector3(0, 0, -1));
             }
             else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                transform.Rotate(new Vector3(0, 0, 5));
+                transform.Rotate(new Vector3(0, 0, 1));
             }
             else
             {
@@ -45,6 +49,10 @@ public class ballController : MonoBehaviour
             {
                 rigidbody2D.gravityScale = 2;
             }
+        }
+        else
+        {
+            image.sprite = newSprite;
         }
     }
 
@@ -78,7 +86,7 @@ public class ballController : MonoBehaviour
             //ボールが坂にある時に速度を変更して、移動させる。
             if (Sloperight == true)
             {
-                playerController.xSpeed = playerController.xSpeed*2;
+                playerController.xSpeed = 10;
                 if (playerController.prri == false)
                 {
                     rigidbody2D.velocity = new Vector2(playerController.xSpeed, rigidbody2D.velocity.y);
@@ -91,7 +99,7 @@ public class ballController : MonoBehaviour
             }
             else if (SlopeLeft == true)
             {
-                playerController.xSpeed = playerController.xSpeed*2;
+                playerController.xSpeed = 10;
                 if (playerController.prri == false)
                 {
                     rigidbody2D.velocity = new Vector2(-playerController.xSpeed, rigidbody2D.velocity.y);
