@@ -24,10 +24,11 @@ public class SUB_sceneManeger : MonoBehaviour
             if (property.propertyType == SerializedPropertyType.String)
             {
                 EditorGUI.BeginChangeCheck();
-                var scene = EditorGUI.ObjectField(position, label, AssetDatabase.LoadAssetAtPath<SceneAsset>(property.stringValue), typeof(SceneAsset), false);
+                var sceneAsset = AssetDatabase.LoadAssetAtPath<SceneAsset>(property.stringValue);
+                var newScene = EditorGUI.ObjectField(position, label, sceneAsset, typeof(SceneAsset), false);
                 if (EditorGUI.EndChangeCheck())
                 {
-                    property.stringValue = AssetDatabase.GetAssetPath(scene);
+                    property.stringValue = AssetDatabase.GetAssetPath(newScene);
                 }
             }
             else
@@ -36,4 +37,4 @@ public class SUB_sceneManeger : MonoBehaviour
             }
         }
     }
-}
+    }
