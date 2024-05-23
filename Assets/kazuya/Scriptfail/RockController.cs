@@ -27,4 +27,11 @@ public class RockController : MonoBehaviour
     {
         rigidbody.velocity = new Vector2(xSpeed, rigidbody.velocity.y);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

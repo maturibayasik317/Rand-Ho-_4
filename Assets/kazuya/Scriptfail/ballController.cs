@@ -78,7 +78,7 @@ public class ballController : MonoBehaviour
             //ボールが坂にある時に速度を変更して、移動させる。
             if (Sloperight == true)
             {
-                playerController.xSpeed = 10;
+                playerController.xSpeed = playerController.xSpeed*2;
                 if (playerController.prri == false)
                 {
                     rigidbody2D.velocity = new Vector2(playerController.xSpeed, rigidbody2D.velocity.y);
@@ -91,7 +91,7 @@ public class ballController : MonoBehaviour
             }
             else if (SlopeLeft == true)
             {
-                playerController.xSpeed = 10;
+                playerController.xSpeed = playerController.xSpeed*2;
                 if (playerController.prri == false)
                 {
                     rigidbody2D.velocity = new Vector2(-playerController.xSpeed, rigidbody2D.velocity.y);
@@ -104,7 +104,7 @@ public class ballController : MonoBehaviour
             }
             else
             {//オブジェクトが動いているときは速度を6に戻す
-                playerController.xSpeed = 6;
+                playerController.xSpeed = playerController.dfSpeed;
             }
         }
     }
