@@ -93,3 +93,7 @@ public class SceneManeger : MonoBehaviour
         }
     }
 }
+
+internal class SceneFieldAttribute1 : Attribute
+{
+}
