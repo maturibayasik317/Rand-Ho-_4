@@ -16,7 +16,7 @@ public class Spawn : MonoBehaviour
 
     void Start()
     {
-        gameObject = Instantiate(Player[index]);
+        gameObject = Instantiate(Player[0]);
         squareController = GetComponent<SquareController>();
     }
 
