@@ -40,7 +40,7 @@ public class Spawn : MonoBehaviour
         else
         {
             ++DeatTime;
-            if(DeatTime == 10.0f)
+            if(DeatTime == 100.0f)
             {
                 Destroy(gameObject);
             }

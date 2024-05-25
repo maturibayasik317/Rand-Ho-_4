@@ -10,9 +10,10 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private new Rigidbody2D rigidbody2D;
-    [SerializeField]public float xSpeed = 6;//プレイヤーの速度
-    [SerializeField]public float jumpPower;//プレイヤーのジャンプの高さ
-    private int JumpCount = 1;//ジャンプできる回数
+    [SerializeField] public float dfSpeed;
+    [SerializeField]public float xSpeed;//プレイヤーの速度
+    [SerializeField] public float jumpPower;//プレイヤーのジャンプの高さ
+    [SerializeField]public int JumpCount = 1;//ジャンプできる回数
     [SerializeField] public float PlayerObject;
     public bool prri = false;//プレイヤーが止まっているかを確認している
     Sample sample = new Sample();
@@ -62,7 +63,7 @@ public class PlayerController : MonoBehaviour
     {
         if (spawn.Alive)
         {
-            xSpeed = 6;
+            xSpeed = dfSpeed;
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 prri = true;
