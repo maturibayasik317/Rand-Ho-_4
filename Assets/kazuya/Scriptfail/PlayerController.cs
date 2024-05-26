@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem.Controls;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem;
+using UnityEditor.Experimental.GraphView;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float dfSpeed;
     [SerializeField]public float xSpeed;//プレイヤーの速度
     [SerializeField] public float jumpPower;//プレイヤーのジャンプの高さ
+    [SerializeField]private float initialJumpPower;
     [SerializeField]public int JumpCount = 1;//ジャンプできる回数
     [SerializeField] public float PlayerObject;
     public bool prri = false;//プレイヤーが止まっているかを確認している
@@ -38,6 +40,10 @@ public class PlayerController : MonoBehaviour
         {       //左右の移動処理
             jumpUpdeate();//ジャンプの処理
             sample.GetSetProperty = transform.position;
+            if(transform.position.y <= -10)
+            {
+                spawn.Alive = false;
+            }
         }
         sceneTitle();//シーンの切り替え
     }

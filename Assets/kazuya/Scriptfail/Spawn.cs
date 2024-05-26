@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Spawn : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Spawn : MonoBehaviour
     public GameObject[] Player;
     public new GameObject gameObject;
     [SerializeField] GameObject PlayerObj;
-    private Vector2 player;
+    private  Vector2 player;
     public bool Alive = true;
     SquareController squareController;
 
@@ -43,6 +44,7 @@ public class Spawn : MonoBehaviour
             if(DeatTime == 100.0f)
             {
                 Destroy(gameObject);
+                SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
             }
         }
     }
