@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 199449398}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: slope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1062,6 +1062,7 @@ MonoBehaviour:
   - {fileID: 6980526229973722225, guid: 53068cc1a0c5a2a41a0f70f391d80e7e, type: 3}
   gameObject: {fileID: 0}
   PlayerObj: {fileID: 0}
+  dfPlayer: {x: 0, y: 0}
   Alive: 1
 --- !u!4 &896969263
 Transform:
