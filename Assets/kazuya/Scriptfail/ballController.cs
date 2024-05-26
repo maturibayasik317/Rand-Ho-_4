@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class ballController : MonoBehaviour
 {
-    public Sprite newSprite;
-    private Image image;
     private new Rigidbody2D rigidbody2D;
     PlayerController playerController;
     Spawn spawn;
@@ -21,7 +19,6 @@ public class ballController : MonoBehaviour
     {
         characterChg = GameObject.Find("CharacterChg");
         rigidbody2D = GetComponent<Rigidbody2D>();
-        image = GetComponent<Image>();
         playerController = GetComponent<PlayerController>();
         spawn = characterChg.GetComponent<Spawn>();
         
@@ -49,10 +46,6 @@ public class ballController : MonoBehaviour
             {
                 rigidbody2D.gravityScale = 2;
             }
-        }
-        else
-        {
-            image.sprite = newSprite;
         }
     }
 

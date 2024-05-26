@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]public int JumpCount = 1;//ジャンプできる回数
     [SerializeField] public float PlayerObject;
     public bool prri = false;//プレイヤーが止まっているかを確認している
-    Sample sample = new Sample();
-   // public bool Alive = true;
+    private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite newSprite;    // インスペクターからスプライトを受け取っておく
     public ButtonControl left { get; private set; }
     public int GravitySensor { get; private set; }
     private GameObject characterChg;
@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
         characterChg = GameObject.Find("CharacterChg");
         spawn = characterChg.GetComponent<Spawn>();
         rigidbody2D =  GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
       new Vector2(transform.position.x,transform.position.y);
     }
 
@@ -39,11 +40,15 @@ public class PlayerController : MonoBehaviour
         if (spawn.Alive)//プレイヤーが生存している時
         {       //左右の移動処理
             jumpUpdeate();//ジャンプの処理
-            sample.GetSetProperty = transform.position;
             if(transform.position.y <= -10)
             {
                 spawn.Alive = false;
             }
+        }
+        else
+        {
+            // スプライトを差し替える
+            spriteRenderer.sprite = newSprite;
         }
         sceneTitle();//シーンの切り替え
     }

@@ -41,7 +41,7 @@ public class Spawn : MonoBehaviour
         else
         {
             ++DeatTime;
-            if(DeatTime == 100.0f)
+            if(DeatTime == 200.0f)
             {
                 Destroy(gameObject);
                 SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
