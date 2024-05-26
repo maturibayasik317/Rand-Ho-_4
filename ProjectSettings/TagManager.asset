@@ -4,19 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - slope
-  - Ground
-<<<<<<< HEAD
-  - sloperight
-  - slopeLeft
-=======
-  - Goal
   - sloperLeft
+  - Ground
   - Wall
   - Dead
   - sloperight
   - breakWall
->>>>>>> kazuya3
   layers:
   - Default
   - TransparentFX
