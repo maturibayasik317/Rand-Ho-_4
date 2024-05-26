@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Debug.LogError("Timer Text is not assigned!");
     }
 
     // Update is called once per frame
