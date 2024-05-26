@@ -6,8 +6,17 @@ TagManager:
   tags:
   - slope
   - Ground
+<<<<<<< HEAD
   - sloperight
   - slopeLeft
+=======
+  - Goal
+  - sloperLeft
+  - Wall
+  - Dead
+  - sloperight
+  - breakWall
+>>>>>>> kazuya3
   layers:
   - Default
   - TransparentFX
