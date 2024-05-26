@@ -165,9 +165,11 @@ MonoBehaviour:
   dfSpeed: 6
   xSpeed: 6
   jumpPower: 0
+  initialJumpPower: 0
   JumpCount: 1
   PlayerObject: 0
   prri: 0
+  newSprite: {fileID: 21300000, guid: f59abf3fd953f5d4c8383fb26628fb6b, type: 3}
 --- !u!114 &-2796041211932930367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4cca703d9d07e4a93a71bed80585f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSprite: {fileID: 21300000, guid: f59abf3fd953f5d4c8383fb26628fb6b, type: 3}
   Sloperight: 0
   SlopeLeft: 0
   ballslope: 0

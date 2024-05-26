@@ -150,7 +150,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.3046875, y: 11.3046875}
+    oldSize: {x: 1.80875, y: 1.80875}
     newSize: {x: 11.3046875, y: 11.3046875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -174,6 +174,8 @@ MonoBehaviour:
   dfSpeed: 6
   xSpeed: 6
   jumpPower: 0
+  initialJumpPower: 0
   JumpCount: 1
   PlayerObject: 0
   prri: 0
+  newSprite: {fileID: 21300000, guid: e049f8e1d7bc12046b6f8ea83b43fcc3, type: 3}

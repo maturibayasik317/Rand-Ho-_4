@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Wallcht : MonoBehaviour
 {
-    public new GameObject WallObject;
+    public  GameObject WallObject;
 
     void Start()
     {
