@@ -11,14 +11,24 @@ public class Spawn : MonoBehaviour
     public GameObject[] Player;
     public new GameObject gameObject;
     [SerializeField] GameObject PlayerObj;
+    public GameObject middleObj;
     private  Vector2 player;
-    public Vector2 dfPlayer;
+    public Vector2 dfPlayer = new Vector2();
     public bool Alive = true;
     SquareController squareController;
+    public static bool middle = false;
 
     void Start()
     {
-        gameObject = Instantiate(Player[0],dfPlayer, Quaternion.identity);
+        if(middle == false)
+        {
+            gameObject = Instantiate(Player[0], dfPlayer, Quaternion.identity);
+        }
+        else
+        {
+            gameObject = Instantiate(Player[0], dfPlayer, Quaternion.identity);
+        }
+        
         squareController = GetComponent<SquareController>();
     }
 
@@ -27,7 +37,7 @@ public class Spawn : MonoBehaviour
         
             gameObject = squareController.childObject;
             PlayerObj = gameObject;
-       if(Alive )
+        if (Alive)
         {
             //キーが押されたときにオブジェクトの種類を変える
             if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
@@ -38,19 +48,20 @@ public class Spawn : MonoBehaviour
                 if (index == Player.Length) { index = 0; }
                 gameObject = Instantiate(Player[index], player, Quaternion.identity);
             }
+
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                player = dfPlayer;
+                Destroy(gameObject);
+                ++index;
+                if (index == Player.Length) { index = 0; }
+                gameObject = Instantiate(Player[index], player, Quaternion.identity);
+            }
         }
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    player = dfPlayer;
-        //    Destroy(gameObject);
-        //    ++index;
-        //    if (index == Player.Length) { index = 0; }
-        //    gameObject = Instantiate(Player[index], player, Quaternion.identity);
-        //}
         else
         {
             ++DeatTime;
-            if(DeatTime == 200.0f)
+            if (DeatTime == 200.0f)
             {
                 Destroy(gameObject);
                 SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
@@ -62,8 +73,9 @@ public class Spawn : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("slope"))
         {
-            dfPlayer = PlayerObj.transform.position;
-            Debug.Log("$dfPlayer");
+            middle = true;
+            Debug.Log("true");
+            dfPlayer = middleObj.transform.position;
         }
     }
 
@@ -71,7 +83,9 @@ public class Spawn : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("slope"))
         {
-            dfPlayer = PlayerObj.transform.position;
+            middle = true;
+            Debug.Log("true");
+            dfPlayer = middleObj.transform.position;
         }
     }
 }
