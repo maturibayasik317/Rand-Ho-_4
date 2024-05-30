@@ -123,6 +123,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("slope"))
         {
+            //中間地点のオブジェクトにふれたときに座標保存をオンにする
             spawn.CheckPlayer = true;
         }
         
