@@ -1,17 +1,17 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Heart_catch : MonoBehaviour
 {
     public static Heart_catch instance;
 
     public int maxHearts = 3;
-    public GameObject[] hearts; // ƒn[ƒgƒIƒuƒWƒFƒNƒg‚Ì”z—ñ
-    public Text heartText; // ƒn[ƒg‚Ì”‚ğ•\¦‚·‚éUIƒeƒLƒXƒg
+    public GameObject[] hearts; // ãƒãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é…åˆ—
+    public TextMeshProUGUI heartText; // ãƒãƒ¼ãƒˆã®æ•°ã‚’è¡¨ç¤ºã™ã‚‹UIãƒ†ã‚­ã‚¹ãƒˆ
 
-    private int currentHearts = 0; // Œ»İ‚Ìƒn[ƒg‚Ì”
+    private int currentHearts = 0; // ç¾åœ¨ã®ãƒãƒ¼ãƒˆã®æ•°
 
     private void Awake()
     {
@@ -30,23 +30,29 @@ public class Heart_catch : MonoBehaviour
         UpdateHeartUI();
     }
 
-    // ƒn[ƒg‚ğûW‚·‚é‚½‚ß‚Ìƒƒ\ƒbƒh
-    public void CollectHeart(GameObject heart)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        for (int i = 0; i < hearts.Length; i++)
+        if (other.CompareTag("Heart"))
         {
-            if (hearts[i] == heart)
-            {
-                currentHearts++;
-                Destroy(heart); // ƒn[ƒg‚ğ”j‰ó
-                UpdateHeartUI();
-                break;
-            }
+            Debug.Log("Heart collected");
+            CollectHeart(other.gameObject);
+        }
+    }
+
+    // ãƒãƒ¼ãƒˆã‚’åé›†ã™ã‚‹ãŸã‚ã®ãƒ¡ã‚½ãƒƒãƒ‰
+    public void CollectHeart(GameObject Heart)
+    {
+        if (currentHearts < maxHearts)
+        {
+            currentHearts++;
+            Destroy(Heart);
+            UpdateHeartUI();
         }
     }
 
     private void UpdateHeartUI()
     {
-        heartText.text = "Hearts: " + new string('?', currentHearts) + new string('?', maxHearts - currentHearts);
+        Debug.Log("Updating Heart UI"); // ãƒ‡ãƒãƒƒã‚°ãƒ­ã‚°ã‚’è¿½åŠ ã—ã¦ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª
+        heartText.text = "Hearts: " + new string('â¤', currentHearts) + new string('â–¡', maxHearts - currentHearts);
     }
 }

@@ -32,7 +32,7 @@ public class CameraZoom : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Playerタグが付いたオブジェクトが見つかりません！");
+            Debug.Log("Playerタグが付いたオブジェクトが見つかりません！");
         }
     }
 
