@@ -6,10 +6,16 @@ TagManager:
   tags:
   - sloperLeft
   - Ground
+<<<<<<< HEAD
+  - slope
+  - Goal
+  - Heart
+=======
   - Wall
   - Dead
   - sloperight
   - breakWall
+>>>>>>> 510c7ad5ad8479313cb9434a492e705fdabbf037
   layers:
   - Default
   - TransparentFX
