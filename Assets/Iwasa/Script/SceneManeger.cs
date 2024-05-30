@@ -9,12 +9,13 @@ public class SceneManeger : MonoBehaviour
     public GameObject GoalPoint;
     private bool gameOver = false;
 
-    [SceneField] public string PlayScene;
-    [SceneField] public string gameClearScene;
-    [SceneField] public string gameOverScene;
-    [SceneField] public string startScene;
-    [SceneField] public string Scene1;
-    [SceneField] public string Scene2;
+    [SceneField] public string PlayScene;//チュートリアルステージ
+    [SceneField] public string gameClearScene;//クリアシーン
+    [SceneField] public string gameOverScene;//ゲームオーバーシーン
+    [SceneField] public string startScene;//スタート画面
+    [SceneField] public string Scene1;//ステージ１
+    [SceneField] public string Scene2;//ステージ２
+    [SceneField] public string Scene3;//ステージ３
     public void StartGameScene()
     {
         GameManager.previousScene = SceneManager.GetActiveScene().name; // 現在のシーン名を保存
