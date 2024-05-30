@@ -45,9 +45,6 @@ public class CameraZoom : MonoBehaviour
 
             bool isJumping = target.position.y > jumpThreshold;
 
-            // Debug.Logを使って状態を確認
-            Debug.Log("Player Y Position: " + target.position.y);
-            Debug.Log("Is Jumping: " + isJumping);
 
             // ジャンプしているときはズームアウト、していないときはズームイン
             float targetZoom = isJumping ? maxZoom : minZoom;

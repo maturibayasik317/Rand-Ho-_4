@@ -6,17 +6,20 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem.Controls;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem;
+using UnityEditor.Experimental.GraphView;
 
 public class PlayerController : MonoBehaviour
 {
     private new Rigidbody2D rigidbody2D;
-    [SerializeField]public float xSpeed = 6;//プレイヤーの速度
-    [SerializeField]public float jumpPower;//プレイヤーのジャンプの高さ
-    private int JumpCount = 1;//ジャンプできる回数
+    [SerializeField] public float dfSpeed;
+    [SerializeField]public float xSpeed;//プレイヤーの速度
+    [SerializeField] public float jumpPower;//プレイヤーのジャンプの高さ
+    [SerializeField]private float initialJumpPower;
+    [SerializeField]public int JumpCount = 1;//ジャンプできる回数
     [SerializeField] public float PlayerObject;
     public bool prri = false;//プレイヤーが止まっているかを確認している
-    Sample sample = new Sample();
-   // public bool Alive = true;
+    private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite newSprite;    // インスペクターからスプライトを受け取っておく
     public ButtonControl left { get; private set; }
     public int GravitySensor { get; private set; }
     private GameObject characterChg;
@@ -27,6 +30,7 @@ public class PlayerController : MonoBehaviour
         characterChg = GameObject.Find("CharacterChg");
         spawn = characterChg.GetComponent<Spawn>();
         rigidbody2D =  GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
       new Vector2(transform.position.x,transform.position.y);
     }
 
@@ -36,7 +40,15 @@ public class PlayerController : MonoBehaviour
         if (spawn.Alive)//プレイヤーが生存している時
         {       //左右の移動処理
             jumpUpdeate();//ジャンプの処理
-            sample.GetSetProperty = transform.position;
+            if(transform.position.y <= -10)
+            {
+                spawn.Alive = false;
+            }
+        }
+        else
+        {
+            // スプライトを差し替える
+            spriteRenderer.sprite = newSprite;
         }
         sceneTitle();//シーンの切り替え
     }
@@ -62,7 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         if (spawn.Alive)
         {
-            xSpeed = 6;
+            xSpeed = dfSpeed;
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 prri = true;

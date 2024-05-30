@@ -9,7 +9,6 @@ public class CharacterChg : MonoBehaviour
     private int o_max = 0;
 
     GameObject[] childObject;
-    Sample sample  = new Sample();
 
     void Start()
     {

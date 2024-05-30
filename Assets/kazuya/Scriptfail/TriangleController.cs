@@ -7,7 +7,6 @@ public class TriangleController : MonoBehaviour
     PlayerController playerController;
     Spawn spawn;
     private GameObject characterChg;
-    // Start is called before the first frame update
     void Start()
     {
         characterChg = GameObject.Find("CharacterChg");

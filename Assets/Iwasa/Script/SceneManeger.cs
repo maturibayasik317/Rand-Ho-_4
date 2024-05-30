@@ -71,7 +71,7 @@ public class SceneManeger : MonoBehaviour
             gameOver = true;
             StartCoroutine(ChangeSceneAfterDelay("GameOver", 3.0f));
         }
-
+        //Pボタンを押すとスタート画面に戻る
         if (Input.GetKeyDown(KeyCode.P))
         {
             SceneManager.LoadScene("StartScene");
@@ -79,12 +79,14 @@ public class SceneManeger : MonoBehaviour
         }
     }
 
+    //シーンの移動処理
     IEnumerator ChangeSceneAfterDelay(string sceneName, float delay)
     {
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(sceneName);
     }
 
+    //ゲームクリアの処理    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -92,4 +94,8 @@ public class SceneManeger : MonoBehaviour
             GameClearScene();
         }
     }
+}
+
+internal class SceneFieldAttribute1 : Attribute
+{
 }
