@@ -16,13 +16,14 @@ public class Spawn : MonoBehaviour
     public Vector2 dfPlayer = new Vector2();
     public bool Alive = true;
     SquareController squareController;
-    public static bool middle = false;
+    public static Vector2 CheckPoint = new Vector2();
+    public bool CheckPlayer = false;
 
     void Start()
     {
-        if(middle == false)
+        if(CheckPoint != Vector2.zero)
         {
-            gameObject = Instantiate(Player[0], dfPlayer, Quaternion.identity);
+            gameObject = Instantiate(Player[0], CheckPoint, Quaternion.identity);
         }
         else
         {
@@ -49,13 +50,11 @@ public class Spawn : MonoBehaviour
                 gameObject = Instantiate(Player[index], player, Quaternion.identity);
             }
 
-            if (Input.GetKeyDown(KeyCode.K))
+            if (CheckPlayer == true)
             {
-                player = dfPlayer;
-                Destroy(gameObject);
-                ++index;
-                if (index == Player.Length) { index = 0; }
-                gameObject = Instantiate(Player[index], player, Quaternion.identity);
+                CheckPoint = PlayerObj.transform.position;
+                CheckPlayer = false;
+                Debug.Log("true" + CheckPoint);
             }
         }
         else
@@ -66,26 +65,6 @@ public class Spawn : MonoBehaviour
                 Destroy(gameObject);
                 SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
             }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("slope"))
-        {
-            middle = true;
-            Debug.Log("true");
-            dfPlayer = middleObj.transform.position;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("slope"))
-        {
-            middle = true;
-            Debug.Log("true");
-            dfPlayer = middleObj.transform.position;
         }
     }
 }
