@@ -56,6 +56,15 @@ public class Spawn : MonoBehaviour
                 CheckPlayer = false;
                 Debug.Log("true" + CheckPoint);
             }
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                SceneManager.LoadScene("sss");
+            }
+            if (Input.GetKeyDown(KeyCode.Backspace))
+            {
+                CheckPoint = dfPlayer;
+                Debug.Log(CheckPoint);
+            }
         }
         else
         {
