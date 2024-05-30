@@ -40,12 +40,12 @@ public class Heart_catch : MonoBehaviour
     }
 
     // ハートを収集するためのメソッド
-    public void CollectHeart(GameObject heart)
+    public void CollectHeart(GameObject Heart)
     {
         if (currentHearts < maxHearts)
         {
             currentHearts++;
-            Destroy(heart);
+            Destroy(Heart);
             UpdateHeartUI();
         }
     }
