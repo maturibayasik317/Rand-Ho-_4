@@ -52,7 +52,7 @@ public class Heart_catch : MonoBehaviour
 
     private void UpdateHeartUI()
     {
-        Debug.Log("Updating Heart UI"); // デバッグログを追加してメソッドが呼び出されていることを確認
+        Debug.Log("ハート出現"); // デバッグログを追加してメソッドが呼び出されていることを確認
         heartText.text = "Hearts: " + new string('❤', currentHearts) + new string('□', maxHearts - currentHearts);
     }
 }

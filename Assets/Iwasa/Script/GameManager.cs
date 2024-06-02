@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         if (timerText == null)
         {
-            Debug.LogError("Timer Text is not assigned!");
+            Debug.Log("Timer Text is not assigned!");
             return;
         }
 
