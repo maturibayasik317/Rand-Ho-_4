@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public bool prri = false;//プレイヤーが止まっているかを確認している
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite newSprite;    // インスペクターからスプライトを受け取っておく
-    public ButtonControl left { get; private set; }
+    
     public int GravitySensor { get; private set; }
     private GameObject characterChg;
     Spawn spawn;
@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("slope"))
+        if (collision.gameObject.CompareTag("slope"))//個々のタグを変更する
         {
             //中間地点のオブジェクトにふれたときに座標保存をオンにする
             spawn.CheckPlayer = true;
