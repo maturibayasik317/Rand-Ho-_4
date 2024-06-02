@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
 
         if (spawn.Alive)//プレイヤーが生存している時
+
         {       //左右の移動処理
             jumpUpdeate();//ジャンプの処理
             if(transform.position.y <= -10)
