@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
+using Unity.VisualScripting;
 
 public class SceneManeger : MonoBehaviour
 {
@@ -28,6 +31,7 @@ public class SceneManeger : MonoBehaviour
         GameManager.previousScene = SceneManager.GetActiveScene().name; // 現在のシーン名を保存
         SceneManager.LoadScene(gameClearScene); // ゲームクリアシーンに移動
         Debug.Log("ゲームクリアに移動");
+        StartCoroutine(DisplayHeart());
     }
 
     public void GameOverScene()
@@ -69,6 +73,7 @@ public class SceneManeger : MonoBehaviour
         // ゲームプレイシーンのみでプレイヤーの存在を確認する
         if (SceneManager.GetActiveScene().name == PlayScene && !gameOver && GameObject.FindGameObjectWithTag("Player") == null)
         {
+            //Playerタグがない場合ゲームオーバー
             gameOver = true;
             StartCoroutine(ChangeSceneAfterDelay("GameOver", 3.0f));
         }
@@ -93,6 +98,30 @@ public class SceneManeger : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             GameClearScene();
+        }
+    }
+
+    IEnumerator DisplayHeart()
+    {
+        yield return new WaitUntil(()  =>  SceneManager.GetActiveScene().name == gameClearScene);
+        
+        // プレイ中に取得したハート数を表示
+        if (Heart_catch.instance != null)
+        {
+            TextMeshProUGUI heartText = GameObject.Find("HeartText").GetComponent<TextMeshProUGUI>();
+            if (heartText != null)
+            {
+                int currentHearts = Heart_catch.instance.GetCurrentHearts();
+                heartText.text = "Collected Hearts: " + currentHearts.ToString();
+            }
+            else
+            {
+                Debug.LogError("HeartText component not found in the scene.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Heart_catch instance not found.");
         }
     }
 }
