@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +18,7 @@ public class Spawn : MonoBehaviour
     SquareController squareController;
     public static Vector2 CheckPoint = new Vector2();//プレイヤーのチェックポイントの座標
     public bool CheckPlayer = false;//プレイヤーのセーブを判定
+    public bool CHG = true;
 
     void Start()
     {
@@ -40,21 +42,28 @@ public class Spawn : MonoBehaviour
             PlayerObj = gameObject;
         if (Alive)
         {
-            //キーが押されたときにオブジェクトの種類を変える
-            if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
+            if (CHG)
             {
-                player = PlayerObj.transform.position;
-                Destroy(gameObject);
-                ++index;
-                if (index == Player.Length) { index = 0; }
-                gameObject = Instantiate(Player[index], player, Quaternion.identity);
+                //キーが押されたときにオブジェクトの種類を変える
+                if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
+                {
+                    player = PlayerObj.transform.position;
+                    Destroy(gameObject);
+                    ++index;
+                    if (index == Player.Length) { index = 0; }
+                    gameObject = Instantiate(Player[index], player, Quaternion.identity);
+                }
+                //プレイヤーがチェックポイントをふれたときその座標を記録する
+                if (CheckPlayer == true)
+                {
+                    CheckPoint = PlayerObj.transform.position;
+                    CheckPlayer = false;
+                }
+                if (Input.GetKeyDown(KeyCode.K))
+                {
+                    SceneManager.LoadScene("sss", LoadSceneMode.Single);
+                }
             }
-            //プレイヤーがチェックポイントをふれたときその座標を記録する
-            if (CheckPlayer == true)
-            {
-                CheckPoint = PlayerObj.transform.position;
-                CheckPlayer = false;
-            }        
         }
         else
         {
@@ -66,5 +75,6 @@ public class Spawn : MonoBehaviour
                 SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
             }
         }
+        
     }
 }

@@ -117,11 +117,18 @@ public class PlayerController : MonoBehaviour
         {
             spawn.Alive = false;
         }
-
+        if (collision.gameObject.CompareTag("slope"))
+        {
+            spawn.CHG = false;
+        }
+        else
+        {
+            spawn.CHG = true;
+        }
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("slope"))//個々のタグを変更する
+        if (collision.gameObject.CompareTag("midlie"))//個々のタグを変更する
         {
             //中間地点のオブジェクトにふれたときに座標保存をオンにする
             spawn.CheckPlayer = true;

@@ -21,9 +21,9 @@ EditorBuildSettings:
     path: Assets/Iwasa/Scene/GameOver.unity
     guid: 7eb49fccdfa4fce41aace73a6175ee08
   - enabled: 1
-    path: Assets/kazuya/sss.unity
-    guid: 591c1ecab6b93064c8fd80aa43d7e0c3
-  - enabled: 1
     path: Assets/kazuya/kazuyaScenes.unity
     guid: 8da4d6fe2365c9e47ad73e2ccfcb47ad
+  - enabled: 1
+    path: Assets/kazuya/sss.unity
+    guid: 591c1ecab6b93064c8fd80aa43d7e0c3
   m_configObjects: {}

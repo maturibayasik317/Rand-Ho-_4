@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Dead
+  - sloperLeft
+  - Ground
+  - breakWall
+  - slope
+  - Wall
+  - sloperight
+  - Heart
+  - Goal
+  - midlie
   layers:
   - Default
   - TransparentFX
