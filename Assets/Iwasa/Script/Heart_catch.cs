@@ -18,6 +18,7 @@ public class Heart_catch : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject); // シーンを跨いでもオブジェクトが破壊されない
         }
         else
         {
@@ -45,5 +46,18 @@ public class Heart_catch : MonoBehaviour
     {
         Debug.Log("ハート表示"); // デバッグログを追加してメソッドが呼び出されていることを確認
         heartText.text = "Hearts: " + new string('a', currentHearts) + new string('□', maxHearts - currentHearts);
+    }
+
+    // ゲームクリア時にハート数
+    public int GetCurrentHearts()
+    {
+        return currentHearts;
+    }
+
+    // ハート数をリセットするメソッド
+    public void ResetHearts()
+    {
+        currentHearts = 0;
+        UpdateHeartUI();
     }
 }
