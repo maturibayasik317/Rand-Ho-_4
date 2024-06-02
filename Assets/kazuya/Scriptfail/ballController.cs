@@ -10,9 +10,9 @@ public class ballController : MonoBehaviour
     PlayerController playerController;
     Spawn spawn;
     private GameObject characterChg;
-    public bool Sloperight = false;
-    public bool SlopeLeft = false;
-    public bool ballslope = false;
+    private bool Sloperight = false;
+    private bool SlopeLeft = false;
+    private bool ballslope = false;
     
 
     void Start()
