@@ -45,7 +45,7 @@ public class Heart_catch : MonoBehaviour
     private void UpdateHeartUI()
     {
         Debug.Log("ハート表示"); // デバッグログを追加してメソッドが呼び出されていることを確認
-        heartText.text = "Hearts: " + new string('a', currentHearts) + new string('□', maxHearts - currentHearts);
+        heartText.text = "Hearts: " + new string('❤', currentHearts) + new string('□', maxHearts - currentHearts);
     }
 
     // ゲームクリア時にハート数

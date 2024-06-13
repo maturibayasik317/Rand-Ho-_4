@@ -101,6 +101,7 @@ public class SceneManeger : MonoBehaviour
         }
     }
 
+    //ハートの取得をクリアシーンに移動
     IEnumerator DisplayHeart()
     {
         yield return new WaitUntil(()  =>  SceneManager.GetActiveScene().name == gameClearScene);

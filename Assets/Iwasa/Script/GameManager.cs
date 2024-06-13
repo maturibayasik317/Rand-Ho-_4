@@ -6,13 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //制限時間系
+    // 制限時間系
     public TextMeshProUGUI timerText;
-    public float timeRemaining = 180; //制限時間
-    public GameObject PlayerObuject;
+    public float timeRemaining = 180; // 制限時間
     private bool isTimeLow = false; // 時間が少ないかどうかを確認する
 
-    //シーン移動を記録する
+    // シーン移動を記録する
     public static string previousScene;
 
     void Start()
@@ -22,16 +21,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timeRemaining > 0)//制限時間の処理
+        if (timeRemaining > 0) // 制限時間の処理
         {
             timeRemaining -= Time.deltaTime;
             DisplayTime(timeRemaining);
         }
         else
         {
-            Destroy(PlayerObuject);//プレイヤーの破壊
-            timerText.text = "TIME UP!!";//タイムアップのメッセージ
-            this.enabled = false; //タイマーを停止
+            DestroyPlayer(); // プレイヤーの破壊メソッドを呼び出す
+            timerText.text = "TIME UP!!"; // タイムアップのメッセージ
+            this.enabled = false; // タイマーを停止
             Debug.Log("TIME UP!!");
         }
 
@@ -39,11 +38,11 @@ public class GameManager : MonoBehaviour
         if (!isTimeLow && timeRemaining <= 60)
         {
             timerText.color = Color.red;
-            isTimeLow = true; 
+            isTimeLow = true;
         }
     }
 
-    void DisplayTime(float timeToDisplay)//残り時間の表示
+    void DisplayTime(float timeToDisplay) // 残り時間の表示
     {
         if (timerText == null)
         {
@@ -57,5 +56,19 @@ public class GameManager : MonoBehaviour
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
         timerText.text = string.Format(" {0:00}:{1:00}", minutes, seconds);
+    }
+
+    void DestroyPlayer() // プレイヤーの破壊
+    {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            Destroy(playerObject);
+            Debug.Log("Player object destroyed");
+        }
+        else
+        {
+            Debug.LogWarning("Player object not found");
+        }
     }
 }
