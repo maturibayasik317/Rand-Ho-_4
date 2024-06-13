@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/kazuya/kazuyaScenes.unity
     guid: 8da4d6fe2365c9e47ad73e2ccfcb47ad
+  - enabled: 1
+    path: Assets/Nakajo/Stage1.unity
+    guid: 4c9691dbfd752884ca1eb005815a1d86
   m_configObjects: {}

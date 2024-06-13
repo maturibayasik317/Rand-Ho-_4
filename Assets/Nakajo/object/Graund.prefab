@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1337836054520269229}
   - component: {fileID: 8166292835974517518}
   - component: {fileID: 5874813615141541159}
-  - component: {fileID: 694261029785992419}
+  - component: {fileID: 1753894667694383744}
   m_Layer: 0
   m_Name: Graund
   m_TagString: Ground
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!61 &694261029785992419
+--- !u!61 &1753894667694383744
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

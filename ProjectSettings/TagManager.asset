@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Heart
+  - Ground
+  - slope
+  - Dead
+  - sloperLeft
+  - sloperight
+  - breakWall
   layers:
   - Default
   - TransparentFX
