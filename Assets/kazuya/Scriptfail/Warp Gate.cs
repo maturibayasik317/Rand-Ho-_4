@@ -5,7 +5,6 @@ using UnityEngine;
 public class WarpGate : MonoBehaviour
 {
     [SceneField] public GameObject WarpObj;
-    [SceneField] public GameObject WarpObj2;
     PlayerController playercontroller;
     public bool WarpTrigger = false;
     private int count = 0;
