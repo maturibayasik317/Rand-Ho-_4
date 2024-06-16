@@ -14,7 +14,6 @@ public class ballController : MonoBehaviour
     private bool SlopeLeft = false;
     private GameObject wallcht;
     Wallcht wch;
-
     void Start()
     {
         characterChg = GameObject.Find("CharacterChg");
@@ -23,7 +22,6 @@ public class ballController : MonoBehaviour
         spawn = characterChg.GetComponent<Spawn>();
         wallcht = GameObject.Find("Wallcht");
         wch = wallcht.GetComponent<Wallcht>();
-
     }
 
     void Update()
@@ -73,9 +71,13 @@ public class ballController : MonoBehaviour
 
             if (collision.gameObject.CompareTag("Dead"))
             {
-                if (spawn.index == 2 && wch.selection == 2)
+                if (GameObject.Find("Rock(Clone)"))
                 {
-                    spawn.Alive = true;
+                    if (spawn.index == 2 && wch.selection == 2)
+                    {
+                        spawn.Alive = true;
+                    }
+                    else spawn.Alive = false;
                 }
                 else
                 {

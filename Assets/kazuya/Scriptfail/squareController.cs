@@ -11,17 +11,15 @@ public class SquareController : MonoBehaviour
     [SerializeField] GameObject Square;//操作するオブジェクト
     private Vector2 player;//プレイヤーの座標を保存する
     Spawn spawn;
-    private GameObject wallcht;
-    Wallcht wch;
+
     void Start()
     {
         spawn = GetComponent<Spawn>();
-        wallcht = GameObject.Find("Wallcht");
-        wch = wallcht.GetComponent<Wallcht>();
     }
 
     void Update()
     {
+
         childObject = spawn.gameObject;//
         Square = childObject;
         //指定のキーが押されたとき
@@ -38,21 +36,5 @@ public class SquareController : MonoBehaviour
                 childObject = Instantiate(Player[index], player, Quaternion.identity);
             } 
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Dead"))
-        {
-            if (spawn.index == 0 && wch.selection == 0)
-            {
-                spawn.Alive = true;
-            }
-            else
-            { 
-                spawn.Alive = false;
-            }
-        }
-        
     }
 }

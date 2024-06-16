@@ -16,7 +16,6 @@ public class TriangleController : MonoBehaviour
         spawn = characterChg.GetComponent<Spawn>();
         wallcht = GameObject.Find("Wallcht");
         wch = wallcht.GetComponent<Wallcht>();
-
     }
 
     // Update is called once per frame
@@ -37,9 +36,16 @@ public class TriangleController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Dead"))
         {
-            if (spawn.index == 1 && wch.selection == 1)
+            if (GameObject.Find("Rock(Clone)"))
             {
-                spawn.Alive = true;
+                if (spawn.index == 1 && wch.selection == 1)
+                {
+                    spawn.Alive = true;
+                }
+                else
+                {
+                    spawn.Alive = false;
+                }
             }
             else
             {
