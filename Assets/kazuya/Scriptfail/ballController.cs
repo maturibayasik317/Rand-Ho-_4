@@ -12,8 +12,8 @@ public class ballController : MonoBehaviour
     private GameObject characterChg;
     private bool Sloperight = false;
     private bool SlopeLeft = false;
-    private bool ballslope = false;
-    
+    private GameObject wallcht;
+    Wallcht wch;
 
     void Start()
     {
@@ -21,7 +21,9 @@ public class ballController : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         playerController = GetComponent<PlayerController>();
         spawn = characterChg.GetComponent<Spawn>();
-        
+        wallcht = GameObject.Find("Wallcht");
+        wch = wallcht.GetComponent<Wallcht>();
+
     }
 
     void Update()
@@ -63,14 +65,25 @@ public class ballController : MonoBehaviour
             {
                 SlopeLeft = true;
             }
-
             else
             {
                 Sloperight = false;
                 SlopeLeft = false;
             }
+
+            if (collision.gameObject.CompareTag("Dead"))
+            {
+                if (spawn.index == 2 && wch.selection == 2)
+                {
+                    spawn.Alive = true;
+                }
+                else
+                {
+                    spawn.Alive = false;
+                }
+            }
         }
-        
+
     }
     private void FixedUpdate()
     {

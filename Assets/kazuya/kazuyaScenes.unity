@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 199449399}
   - component: {fileID: 199449398}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Wallcht
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   WallObject: {fileID: 1830669522}
   RockObject: {fileID: 7469241972012803983, guid: 16e1bdc3bb7909544b9b4ab4d2bbfef8, type: 3}
   dfRock: {x: 67, y: -1}
+  selection: 0
 --- !u!61 &199449399
 BoxCollider2D:
   m_ObjectHideFlags: 0

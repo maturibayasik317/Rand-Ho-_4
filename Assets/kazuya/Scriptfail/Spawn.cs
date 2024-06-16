@@ -53,17 +53,14 @@ public class Spawn : MonoBehaviour
                     if (index == Player.Length) { index = 0; }
                     gameObject = Instantiate(Player[index], player, Quaternion.identity);
                 }
+            }
                 //プレイヤーがチェックポイントをふれたときその座標を記録する
                 if (CheckPlayer == true)
                 {
                     CheckPoint = PlayerObj.transform.position;
                     CheckPlayer = false;
                 }
-                if (Input.GetKeyDown(KeyCode.K))
-                {
-                    SceneManager.LoadScene("sss", LoadSceneMode.Single);
-                }
-            }
+            
         }
         else
         {

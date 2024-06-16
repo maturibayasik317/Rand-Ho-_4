@@ -10,9 +10,11 @@ public class Wallcht : MonoBehaviour
     public Vector2 dfRock;
     private bool PlaCh = false;
     private int count = 0;
+    RockController ROC;
+    public int selection = 0;
     void Start()
     {
-
+        ROC = GetComponent<RockController>();
     }
 
     void Update()
