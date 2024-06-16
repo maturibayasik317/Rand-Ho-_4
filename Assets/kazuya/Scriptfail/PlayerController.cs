@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
         spawn = characterChg.GetComponent<Spawn>();
         rigidbody2D =  GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
       new Vector2(transform.position.x,transform.position.y);
     }
 
@@ -114,15 +115,18 @@ public class PlayerController : MonoBehaviour
             JumpCount = 0;
         }
         rigidbody2D.gravityScale = 10;
-        if (collision.gameObject.CompareTag("Dead"))
+        if (collision.gameObject.CompareTag("slope"))//タグを後で変更
         {
-            spawn.Alive = false;
+            spawn.CHG = false;
         }
-
+        else
+        {
+            spawn.CHG = true;
+        }
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("slope"))//個々のタグを変更する
+        if (collision.gameObject.CompareTag("midlie"))//個々のタグを変更する
         {
             //中間地点のオブジェクトにふれたときに座標保存をオンにする
             spawn.CheckPlayer = true;

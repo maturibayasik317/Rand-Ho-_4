@@ -7,12 +7,15 @@ public class TriangleController : MonoBehaviour
     PlayerController playerController;
     Spawn spawn;
     private GameObject characterChg;
+    private GameObject wallcht;
+    Wallcht wch;
     void Start()
     {
         characterChg = GameObject.Find("CharacterChg");
         playerController = GetComponent<PlayerController>();
         spawn = characterChg.GetComponent<Spawn>();
-        
+        wallcht = GameObject.Find("Wallcht");
+        wch = wallcht.GetComponent<Wallcht>();
     }
 
     // Update is called once per frame
@@ -28,5 +31,26 @@ public class TriangleController : MonoBehaviour
 
         }
         
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Dead"))
+        {
+            if (GameObject.Find("Rock(Clone)"))
+            {
+                if (spawn.index == 1 && wch.selection == 1)
+                {
+                    spawn.Alive = true;
+                }
+                else
+                {
+                    spawn.Alive = false;
+                }
+            }
+            else
+            {
+                spawn.Alive = false;
+            }
+        }
     }
 }
