@@ -10,6 +10,7 @@ public class Ground_RightLeft : MonoBehaviour
 
     private Vector3 startPosition;
     private bool movingRight = true;
+    private bool movingLeft = true;
     private bool playerOnPlatform = false;
     private Transform playerTransform;
 
@@ -41,6 +42,23 @@ public class Ground_RightLeft : MonoBehaviour
             if (transform.position.x <= startPosition.x - moveDistance)
             {
                 movingRight = true;
+            }
+        }
+        //s“®”ÍˆÍ‚ª¶ŒÀŠE‚És‚Á‚½‚Æ‚«
+        if (movingLeft)
+        {
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            if (transform.position.x >= startPosition.x + moveDistance)
+            {
+                movingLeft = false;
+            }
+        }
+        else
+        {
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+            if (transform.position.x <= startPosition.x - moveDistance)
+            {
+                movingLeft = true;
             }
         }
     }

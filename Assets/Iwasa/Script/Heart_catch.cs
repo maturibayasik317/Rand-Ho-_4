@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Heart_catch : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class Heart_catch : MonoBehaviour
     private void UpdateHeartUI()
     {
         Debug.Log("ハート表示"); // デバッグログを追加してメソッドが呼び出されていることを確認
-        heartText.text = "Hearts: " + new string('❤', currentHearts) + new string('□', maxHearts - currentHearts);
+        heartText.text = new string('H', currentHearts) + new string('□', maxHearts - currentHearts);
     }
 
     // ゲームクリア時にハート数
