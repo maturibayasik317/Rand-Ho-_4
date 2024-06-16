@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Heart
   - Ground
   - slope
@@ -11,11 +12,23 @@ TagManager:
   - sloperLeft
   - sloperight
   - breakWall
+=======
+  - Dead
+  - sloperLeft
+  - Ground
+  - breakWall
+  - slope
+  - Wall
+  - sloperight
+  - Heart
+  - Goal
+  - midlie
+>>>>>>> kazuya3
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 

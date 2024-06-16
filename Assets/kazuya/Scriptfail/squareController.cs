@@ -11,6 +11,7 @@ public class SquareController : MonoBehaviour
     [SerializeField] GameObject Square;//操作するオブジェクト
     private Vector2 player;//プレイヤーの座標を保存する
     Spawn spawn;
+
     void Start()
     {
         spawn = GetComponent<Spawn>();
@@ -18,6 +19,7 @@ public class SquareController : MonoBehaviour
 
     void Update()
     {
+
         childObject = spawn.gameObject;//
         Square = childObject;
         //指定のキーが押されたとき
