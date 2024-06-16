@@ -9,7 +9,7 @@ public class Wallcht : MonoBehaviour
     public GameObject RockObject;
     public Vector2 dfRock;
     private bool PlaCh = false;
-    public int selection = 0;
+
     void Start()
     {
 
